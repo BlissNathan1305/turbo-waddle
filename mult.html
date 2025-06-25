@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Batch Wallpaper Generator</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      margin: 10px;
+      background: #1e3c72;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    canvas {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>?? Batch Wallpaper Generator</h1>
+<p>Click below to generate and download 5 unique wallpapers</p>
+<button onclick="generateWallpapers()">Generate Wallpapers</button>
+
+<canvas id="wallpaper" width="1080" height="1920"></canvas>
+
+<script>
+  const canvas = document.getElementById("wallpaper");
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+
+  function generateGradientBackground() {
+    const g = ctx.createLinearGradient(0, 0, 0, height);
+    g.addColorStop(0, `hsl(${Math.random() * 360}, 70%, 30%)`);
+    g.addColorStop(1, `hsl(${Math.random() * 360}, 70%, 50%)`);
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  function drawGlowingShapes() {
+    for (let i = 0; i < 60; i++) {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      const r = Math.random() * 120 + 40;
+      const hue = Math.floor(Math.random() * 360);
+      const alpha = Math.random() * 0.1 + 0.03;
+      const gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
+      gradient.addColorStop(0, `hsla(${hue}, 100%, 80%, ${alpha})`);
+      gradient.addColorStop(1, `hsla(${hue}, 100%, 80%, 0)`);
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function generateWallpaper(index) {
+    ctx.clearRect(0, 0, width, height);
+    generateGradientBackground();
+    drawGlowingShapes();
+
+    const dataURL = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.download = `wallpaper_${index + 1}.png`;
+    link.href = dataURL;
+    link.click();
+  }
+
+  function generateWallpapers() {
+    const total = 5;
+    for (let i = 0; i < total; i++) {
+      setTimeout(() => generateWallpaper(i), i * 500); // Slight delay for browser performance
+    }
+  }
+</script>
+
+</body>
+</html>
+

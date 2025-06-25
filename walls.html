@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beautiful Wallpaper Generator</title>
+  <style>
+    body {
+      text-align: center;
+      background: #111;
+      font-family: sans-serif;
+      color: white;
+    }
+    canvas {
+      border: 1px solid #333;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #1e3c72;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Beautiful Wallpaper Generator</h1>
+<canvas id="wallpaper" width="1080" height="1920"></canvas>
+<br>
+<button onclick="downloadImage()">Download as PNG</button>
+
+<script>
+  const canvas = document.getElementById("wallpaper");
+  const ctx = canvas.getContext("2d");
+
+  const width = canvas.width;
+  const height = canvas.height;
+
+  // Gradient background
+  const gradient = ctx.createLinearGradient(0, 0, 0, height);
+  gradient.addColorStop(0, "#0f2027");
+  gradient.addColorStop(0.5, "#203a43");
+  gradient.addColorStop(1, "#2c5364");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, width, height);
+
+  // Add glowing circles
+  for (let i = 0; i < 60; i++) {
+    const x = Math.random() * width;
+    const y = Math.random() * height;
+    const radius = Math.random() * 120 + 40;
+    const hue = Math.floor(Math.random() * 360);
+    const color = `hsla(${hue}, 100%, 70%, 0.07)`;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+
+  // Download image
+  function downloadImage() {
+    const link = document.createElement("a");
+    link.download = "beautiful_wallpaper.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  }
+</script>
+
+</body>
+</html>
+
