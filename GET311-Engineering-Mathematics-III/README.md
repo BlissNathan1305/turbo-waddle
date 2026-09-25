@@ -13,7 +13,15 @@ A print-ready student workbook is included as [GET311-Student-Workbook.pdf](GET3
 
 ## Worked Solutions
 
-Worked solutions to all 128 questions are in the [`solutions/`](solutions/) folder, one file per topic. They are also available as a Word document, [GET311-Engineering-Mathematics-III-Solutions.docx](GET311-Engineering-Mathematics-III-Solutions.docx), which shows each question above its solution.
+Worked solutions to all 128 questions are in the [`solutions/`](solutions/) folder, one file per topic. They are also available as a Word document, [GET311-Engineering-Mathematics-III-Solutions.docx](GET311-Engineering-Mathematics-III-Solutions.docx). It shows each question in a blue box above its solution and ends each solution with a green answer box. Every equation is a native Word equation, so it can be edited with Word's built-in equation editor.
+
+The Markdown files write their mathematics in LaTeX (`$...$` and `$$...$$`), which GitHub renders as equations. To rebuild the Word document after editing them, install pandoc (for example `pip install pypandoc_binary`) and run:
+
+```
+python3 build/build_solutions.py
+```
+
+When you first open the Word document, Word asks whether to update fields. Choose **Yes** to fill in the table of contents.
 
 ## Learning Outcomes
 

@@ -2,170 +2,164 @@
 
 ## 1. Agricultural Engineering
 
-**Question 1: revenue per hectare**
+### Question 1: Revenue per hectare
 
-R = Y p = [[2.5, 12, 8], [3.0, 10, 9]] (150 000, 40 000, 60 000)ᵀ
+$$\mathbf{R} = Y\mathbf{p} = \begin{bmatrix} 2.5 & 12 & 8 \\ 3.0 & 10 & 9 \end{bmatrix}\begin{bmatrix} 150\,000 \\ 40\,000 \\ 60\,000 \end{bmatrix} = \begin{bmatrix} 375\,000 + 480\,000 + 480\,000 \\ 450\,000 + 400\,000 + 540\,000 \end{bmatrix} = \begin{bmatrix} 1\,335\,000 \\ 1\,390\,000 \end{bmatrix}$$
 
-- Season 1: 2.5(150 000) + 12(40 000) + 8(60 000) = 375 000 + 480 000 + 480 000 = **₦1 335 000 per ha**
-- Season 2: 3(150 000) + 10(40 000) + 9(60 000) = 450 000 + 400 000 + 540 000 = **₦1 390 000 per ha**
+> **Answer.** Season 1: ₦1 335 000 per ha. Season 2: ₦1 390 000 per ha.
 
-**Question 2: the hitch linkage**
+### Question 2: The hitch linkage
 
-- det A = 2·3 − 1·1 = **5**.
-- A⁻¹ = (1/5)[[3, −1], [−1, 2]] = **[[0.6, −0.2], [−0.2, 0.4]]**.
+$$\det A = 2\cdot 3 - 1\cdot 1 = 5, \qquad A^{-1} = \frac{1}{5}\begin{bmatrix} 3 & -1 \\ -1 & 2 \end{bmatrix} = \begin{bmatrix} 0.6 & -0.2 \\ -0.2 & 0.4 \end{bmatrix}$$
 
-The determinant is the area scale factor. Any region of input motion is mapped to an output region **5 times larger**. Because det A > 0, orientation is kept.
+The determinant is the area scale factor. Any region of input motion is mapped to an output region **5 times larger**. Because $\det A > 0$, orientation is kept.
+
+> **Answer.** $\det A = 5$; the linkage multiplies areas by 5.
 
 ## 2. Chemical Engineering
 
-**Question 1: feed flow rates**
+### Question 1: Feed flow rates
 
-det C = **0.14**, so C is invertible, and
+$\det C = 0.14 \ne 0$, so $C$ is invertible, and
 
-C⁻¹ = (1/14)[[29, −11, −1], [−19, 41, −9], [4, −16, 24]].
+$$C^{-1} = \frac{1}{14}\begin{bmatrix} 29 & -11 & -1 \\ -19 & 41 & -9 \\ 4 & -16 & 24 \end{bmatrix}, \qquad \mathbf{F} = C^{-1}\begin{bmatrix} 50 \\ 40 \\ 60 \end{bmatrix} = \begin{bmatrix} 67.86 \\ 10.71 \\ 71.43 \end{bmatrix}\ \text{kg/h}$$
 
-The feed rates are F = C⁻¹ (50, 40, 60)ᵀ:
+Check, component 1: $0.6(67.86) + 0.2(10.71) + 0.1(71.43) = 50.0$ ✓
 
-**F₁ = 67.86 kg/h, F₂ = 10.71 kg/h, F₃ = 71.43 kg/h**
+> **Answer.** $F_1 = 67.86$ kg/h, $F_2 = 10.71$ kg/h, $F_3 = 71.43$ kg/h.
 
-Check, component 1: 0.6(67.86) + 0.2(10.71) + 0.1(71.43) = 50.0 ✓
+### Question 2: Rows that sum to zero
 
-**Question 2: rows that sum to zero**
+Let $\mathbf{1} = (1, 1, 1)^{T}$. If every row of $K$ sums to zero, then
 
-Let **1** = (1, 1, 1)ᵀ. If every row of K sums to zero, then K**1** = **0**. So K has a non-zero vector in its null space, its columns are dependent, and **det K = 0**.
+$$K\mathbf{1} = \mathbf{0}$$
+
+so $K$ has a non-zero vector in its null space, its columns are dependent, and $\det K = 0$.
 
 Physically, the reactions only move mass between species. The total amount is conserved, so one combination of concentrations never changes and cannot be solved for independently. This also means there is always a non-trivial equilibrium (steady-state) composition.
 
+> **Answer.** $K\mathbf{1} = \mathbf{0}$ with $\mathbf{1} \ne \mathbf{0}$, so $\det K = 0$: conservation of mass removes one degree of freedom.
+
 ## 3. Computer Engineering
 
-**Question 1: Hill cipher key**
+### Question 1: Hill cipher key
 
-- det K = 3·5 − 3·2 = 9, and 9 mod 26 = **9**.
-- gcd(9, 26) = 1, so K is **invertible mod 26**.
-- The inverse of 9 mod 26 is 3, since 9·3 = 27 ≡ 1.
-- K⁻¹ ≡ 3 · [[5, −3], [−2, 3]] = [[15, −9], [−6, 9]] ≡ **[[15, 17], [20, 9]] (mod 26)**.
+$\det K = 3\cdot 5 - 3\cdot 2 = 9$, and $\gcd(9, 26) = 1$, so $K$ is invertible mod 26. The inverse of 9 mod 26 is 3, since $9\cdot 3 = 27 \equiv 1$. Then
 
-Check: K K⁻¹ = [[105, 78], [130, 79]] ≡ [[1, 0], [0, 1]] (mod 26) ✓
+$$K^{-1} \equiv 3\begin{bmatrix} 5 & -3 \\ -2 & 3 \end{bmatrix} = \begin{bmatrix} 15 & -9 \\ -6 & 9 \end{bmatrix} \equiv \begin{bmatrix} 15 & 17 \\ 20 & 9 \end{bmatrix} \pmod{26}$$
 
-**Question 2: translate then rotate in homogeneous coordinates**
+Check: $KK^{-1} = \begin{bmatrix} 105 & 78 \\ 130 & 79 \end{bmatrix} \equiv \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \pmod{26}$ ✓
 
-- T = [[1, 0, 4], [0, 1, −2], [0, 0, 1]]
-- R(90°) = [[0, −1, 0], [1, 0, 0], [0, 0, 1]]
+> **Answer.** $\det K \equiv 9 \pmod{26}$; $K^{-1} \equiv \begin{bmatrix} 15 & 17 \\ 20 & 9 \end{bmatrix} \pmod{26}$.
 
-**M = RT = [[0, −1, 2], [1, 0, 4], [0, 0, 1]]**, with **det M = 1**, and
+### Question 2: Translate then rotate in homogeneous coordinates
 
-**M⁻¹ = [[0, 1, −4], [−1, 0, 2], [0, 0, 1]]** (rotate by −90°, then translate by (−4, 2)).
+$$T = \begin{bmatrix} 1 & 0 & 4 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{bmatrix}, \qquad R(90^\circ) = \begin{bmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
 
-The determinant is 1 because det R = 1 (a rotation) and det T = 1 (a translation). Neither changes area, so their product doesn't either.
+$$M = RT = \begin{bmatrix} 0 & -1 & 2 \\ 1 & 0 & 4 \\ 0 & 0 & 1 \end{bmatrix}, \qquad M^{-1} = \begin{bmatrix} 0 & 1 & -4 \\ -1 & 0 & 2 \\ 0 & 0 & 1 \end{bmatrix}$$
+
+$M^{-1}$ rotates by $-90^\circ$ and then translates by $(-4, 2)$. The determinant is 1 because $\det R = 1$ (a rotation) and $\det T = 1$ (a translation); neither changes area, so their product doesn't either.
+
+> **Answer.** $\det M = 1$; $M^{-1}$ is given above.
 
 ## 4. Civil Engineering
 
-**Question 1: flexibility matrix and displacements**
+### Question 1: Flexibility matrix and displacements
 
-K = [[350, −150], [−150, 150]] kN/m, with det K = 52 500 − 22 500 = 30 000.
+$$K = \begin{bmatrix} 350 & -150 \\ -150 & 150 \end{bmatrix}\ \text{kN/m}, \qquad \det K = 52\,500 - 22\,500 = 30\,000$$
 
-K⁻¹ = (1/30 000)[[150, 150], [150, 350]] = **[[1/200, 1/200], [1/200, 7/600]] m/kN**
+$$K^{-1} = \frac{1}{30\,000}\begin{bmatrix} 150 & 150 \\ 150 & 350 \end{bmatrix} = \begin{bmatrix} 1/200 & 1/200 \\ 1/200 & 7/600 \end{bmatrix}\ \text{m/kN}$$
 
-u = K⁻¹F:
-- u₁ = (10 + 5)/200 = **0.075 m (75 mm)**
-- u₂ = 10/200 + 35/600 = **0.108 m (108 mm)**
+$$\mathbf{u} = K^{-1}\mathbf{F}: \qquad u_1 = \frac{10 + 5}{200} = 0.075\ \text{m}, \qquad u_2 = \frac{10}{200} + \frac{35}{600} = 0.108\ \text{m}$$
 
-**Question 2: the unsupported beam element**
+> **Answer.** $u_1 = 75$ mm and $u_2 = 108$ mm.
+
+### Question 2: The unsupported beam element
 
 The Euler–Bernoulli beam element stiffness matrix is
 
-K = (EI/L³)[[12, 6L, −12, 6L], [6L, 4L², −6L, 2L²], [−12, −6L, 12, −6L], [6L, 2L², −6L, 4L²]]
+$$K = \frac{EI}{L^3}\begin{bmatrix} 12 & 6L & -12 & 6L \\ 6L & 4L^2 & -6L & 2L^2 \\ -12 & -6L & 12 & -6L \\ 6L & 2L^2 & -6L & 4L^2 \end{bmatrix}$$
 
-- Row 1 + row 3 = **0**.
-- Row 2 + row 4 = L × row 1.
+$R_1 + R_3 = \mathbf{0}$ and $R_2 + R_4 = L\,R_1$, where $R_i$ is row $i$. So only two rows are independent: $\operatorname{rank} K = 2 < 4$ and $\det K = 0$.
 
-So only two rows are independent: **rank K = 2 < 4**, and **det K = 0**.
+The two missing ranks are the two rigid-body motions: translating and rotating the whole beam produces no strain and no force. With $K$ singular, $K\mathbf{u} = \mathbf{F}$ has no unique solution. Supports remove these rigid-body modes, which removes the matching rows and columns, and the reduced matrix is non-singular.
 
-The two missing ranks are the two rigid-body motions: translating and rotating the whole beam produces no strain and no force. With K singular, K u = F has no unique solution. Supports remove these rigid-body modes, which removes the matching rows and columns, and the reduced matrix is non-singular.
+> **Answer.** $\operatorname{rank} K = 2$, so $\det K = 0$; supports must remove the two rigid-body modes.
 
 ## 5. Electrical and Electronics Engineering
 
-**Question 1: admittance matrix and port currents**
+### Question 1: Admittance matrix and port currents
 
-det Z = 60 − 16 = 44.
+$$\det Z = 60 - 16 = 44, \qquad Y = Z^{-1} = \frac{1}{44}\begin{bmatrix} 6 & -4 \\ -4 & 10 \end{bmatrix} = \begin{bmatrix} 0.136 & -0.091 \\ -0.091 & 0.227 \end{bmatrix}\ \text{S}$$
 
-Y = Z⁻¹ = (1/44)[[6, −4], [−4, 10]] = **[[0.136, −0.091], [−0.091, 0.227]] S**
+$$I_1 = \frac{6(20) - 4(12)}{44} = \frac{72}{44} = 1.636\ \text{A}, \qquad I_2 = \frac{-4(20) + 10(12)}{44} = \frac{40}{44} = 0.909\ \text{A}$$
 
-I = YV:
-- I₁ = (6·20 − 4·12)/44 = 72/44 = **1.636 A**
-- I₂ = (−4·20 + 10·12)/44 = 40/44 = **0.909 A**
+> **Answer.** $I_1 = 1.636$ A and $I_2 = 0.909$ A.
 
-**Question 2: determinant of the conductance matrix**
+### Question 2: Determinant of the conductance matrix
 
 Expanding along the first row:
 
-det G = 0.5(0.7·0.4 − 0.3·0.3) − (−0.2)(−0.2·0.4 − 0) + 0 = 0.5(0.19) + 0.2(−0.08) = 0.095 − 0.016 = **0.079 S³**
+$$\det G = 0.5\left(0.7\cdot 0.4 - 0.3\cdot 0.3\right) + 0.2\left(-0.2\cdot 0.4 - 0\right) + 0 = 0.095 - 0.016 = 0.079\ \text{S}^3$$
 
-Since det G ≠ 0, the node voltages are **unique**.
+> **Answer.** $\det G = 0.079 \ne 0$, so the node voltages are unique.
 
 ## 6. Food Engineering
 
-**Question 1: batches that use all the stock**
+### Question 1: Batches that use all the stock
 
-Rows are ingredients (flour, sugar, fat) and columns are products (bread, cake, biscuit). det A = **2.2**, and
+Rows are ingredients (flour, sugar, fat) and columns are products (bread, cake, biscuit). $\det A = 2.2$ and
 
-A⁻¹ = [[5/22, 0, −5/11], [−1/11, 2, −20/11], [3/44, −3, 85/22]].
+$$A^{-1} = \begin{bmatrix} 5/22 & 0 & -5/11 \\ -1/11 & 2 & -20/11 \\ 3/44 & -3 & 85/22 \end{bmatrix}, \qquad \mathbf{x} = A^{-1}\begin{bmatrix} 80 \\ 25 \\ 18 \end{bmatrix} = \begin{bmatrix} 10 \\ 10 \\ 0 \end{bmatrix}$$
 
-x = A⁻¹(80, 25, 18)ᵀ = **(10, 10, 0)**: 10 batches of bread, 10 batches of cake and no biscuits.
+Check: flour $50 + 30 = 80$ ✓, sugar $5 + 20 = 25$ ✓, fat $3 + 15 = 18$ ✓
 
-Check:
-- Flour: 50 + 30 = 80 ✓
-- Sugar: 5 + 20 = 25 ✓
-- Fat: 3 + 15 = 18 ✓
+> **Answer.** 10 batches of bread, 10 batches of cake and no biscuits.
 
-**Question 2: the dryer heat-transfer matrix**
+### Question 2: The dryer heat-transfer matrix
 
-Hᵀ = H, since h₁₂ = h₂₁ = −1, h₂₃ = h₃₂ = −1 and h₁₃ = h₃₁ = 0. So H is symmetric.
+$H^{T} = H$, since $h_{12} = h_{21} = -1$, $h_{23} = h_{32} = -1$ and $h_{13} = h_{31} = 0$, so $H$ is symmetric.
 
-det H = 4(16 − 1) − (−1)(−4 − 0) + 0 = 60 − 4 = **56**
+$$\det H = 4(16 - 1) + 1(-4 - 0) + 0 = 56, \qquad H^{-1} = \frac{1}{56}\begin{bmatrix} 15 & 4 & 1 \\ 4 & 16 & 4 \\ 1 & 4 & 15 \end{bmatrix}$$
 
-H⁻¹ = (1/56)[[15, 4, 1], [4, 16, 4], [1, 4, 15]]
+The inverse is symmetric too: the inverse of a symmetric matrix is always symmetric.
 
-This is symmetric too: the inverse of a symmetric matrix is symmetric.
+> **Answer.** $\det H = 56$; $H^{-1}$ is given above.
 
 ## 7. Mechanical Engineering
 
-**Question 1: properties of the rotation matrix**
+### Question 1: Properties of the rotation matrix
 
-Let c = cos θ and s = sin θ.
+Let $c = \cos\theta$ and $s = \sin\theta$. Then
 
-RᵀR = [[c, s, 0], [−s, c, 0], [0, 0, 1]][[c, −s, 0], [s, c, 0], [0, 0, 1]] = [[c² + s², 0, 0], [0, s² + c², 0], [0, 0, 1]] = **I**
+$$R^{T}R = \begin{bmatrix} c & s & 0 \\ -s & c & 0 \\ 0 & 0 & 1 \end{bmatrix}\begin{bmatrix} c & -s & 0 \\ s & c & 0 \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} c^2 + s^2 & 0 & 0 \\ 0 & s^2 + c^2 & 0 \\ 0 & 0 & 1 \end{bmatrix} = I$$
 
-Expanding along the third row: det R = 1 · (c² + s²) = **1**.
+Expanding along the third row, $\det R = 1\cdot(c^2 + s^2) = 1$. From $R^{T}R = I$ we get $R^{-1} = R^{T}$. Since $\cos(-\theta) = c$ and $\sin(-\theta) = -s$, the transpose is exactly $R(-\theta)$. ∎
 
-From RᵀR = I we get R⁻¹ = Rᵀ = [[c, s, 0], [−s, c, 0], [0, 0, 1]]. Since cos(−θ) = c and sin(−θ) = −s, this is exactly **R(−θ)** ∎.
+> **Answer.** $R^{T}R = I$, $\det R = 1$ and $R^{-1} = R^{T} = R(-\theta)$.
 
-**Question 2: M⁻¹K**
+### Question 2: $M^{-1}K$
 
-M⁻¹ = diag(½, 1), so
+$$M^{-1} = \operatorname{diag}\left(\tfrac12, 1\right), \qquad M^{-1}K = \begin{bmatrix} 150 & -50 \\ -100 & 100 \end{bmatrix}\ \text{s}^{-2}$$
 
-**M⁻¹K = [[150, −50], [−100, 100]] s⁻²**
+Its eigenvalues are the squared natural frequencies $\omega^2$ (see Topic 3).
 
-Its eigenvalues are ω² (see Topic 3).
+> **Answer.** $M^{-1}K = \begin{bmatrix} 150 & -50 \\ -100 & 100 \end{bmatrix}$
 
 ## 8. Petroleum Engineering
 
-**Question 1: block pressures**
+### Question 1: Block pressures
 
-det T = 2(3) − (−1)(−2) + 0 = 4, and
-
-T⁻¹ = (1/4)[[3, 2, 1], [2, 4, 2], [1, 2, 3]].
-
-**p** = T⁻¹(1500, 0, 1200)ᵀ = **(1425, 1350, 1275) psi**
+$$\det T = 4, \qquad T^{-1} = \frac{1}{4}\begin{bmatrix} 3 & 2 & 1 \\ 2 & 4 & 2 \\ 1 & 2 & 3 \end{bmatrix}, \qquad \mathbf{p} = T^{-1}\begin{bmatrix} 1500 \\ 0 \\ 1200 \end{bmatrix} = \begin{bmatrix} 1425 \\ 1350 \\ 1275 \end{bmatrix}\ \text{psi}$$
 
 The pressure falls steadily from the high-pressure boundary block towards the lower one, as expected for steady 1-D flow.
 
-**Question 2: production-rate matrix**
+> **Answer.** $\mathbf{p} = (1425,\ 1350,\ 1275)$ psi
 
-Expanding along the first row:
+### Question 2: Production-rate matrix
 
-det P = 500(120 000 − 10 000) − 200(90 000 − 20 000) + 50(30 000 − 80 000) = 55 000 000 − 14 000 000 − 2 500 000 = **3.85 × 10⁷ ≠ 0**
+$$\det P = 500(120\,000 - 10\,000) - 200(90\,000 - 20\,000) + 50(30\,000 - 80\,000) = 3.85 \times 10^{7}$$
 
-So each well's contribution can be recovered uniquely from the separator totals.
+Since $\det P \ne 0$, each well's contribution can be recovered uniquely from the separator totals. If $\det P = 0$, at least one well's output would be a linear combination of the others. Infinitely many allocations would then fit the same totals, and the contributions could not be identified without extra measurements, such as individual well tests.
 
-If det P = 0, at least one well's output would be a linear combination of the others. Infinitely many allocations would then fit the same totals, and the contributions could not be identified without extra measurements, such as individual well tests.
+> **Answer.** $\det P = 3.85 \times 10^{7} \ne 0$, so the allocation is unique.

@@ -2,65 +2,67 @@
 
 ## 1. Agricultural Engineering
 
-**Question 1: field area by Green's theorem**
+### Question 1: Field area by Green's theorem
 
-With x = 300 cos t and y = 200 sin t:
-- dx = −300 sin t dt
-- dy = 200 cos t dt
+With $x = 300\cos t$ and $y = 200\sin t$, we have $dx = -300\sin t\,dt$ and $dy = 200\cos t\,dt$, so
 
-A = ½∮(x dy − y dx) = ½∫₀^{2π} [60 000 cos²t + 60 000 sin²t] dt = ½(60 000)(2π) = **60 000π ≈ 188 496 m² (18.85 ha)**
+$$A = \frac12\oint(x\,dy - y\,dx) = \frac12\int_0^{2\pi}\left(60\,000\cos^2 t + 60\,000\sin^2 t\right)dt = \frac12(60\,000)(2\pi) = 60\,000\pi$$
 
-For GPS points (x₁, y₁), …, (xₙ, yₙ), treat the boundary as straight segments. The same line integral then becomes the **shoelace formula** A = ½|Σ(xᵢyᵢ₊₁ − xᵢ₊₁yᵢ)|, which is what handheld area meters compute.
+For GPS points $(x_1, y_1), \dots, (x_n, y_n)$, treat the boundary as straight segments. The same line integral then becomes the **shoelace formula**, which is what handheld area meters compute:
 
-**Question 2: checking the divergence theorem**
+$$A = \frac12\left|\sum_{i=1}^{n}\left(x_iy_{i+1} - x_{i+1}y_i\right)\right|$$
 
-Volume integral: ∇ · **q** = 2x + 2y + 2z, so ∭(2x + 2y + 2z) dV = 1 + 1 + 1 = **3**.
+> **Answer.** $A = 60\,000\pi \approx 188\,496$ m² (18.85 ha).
 
-Surface integral:
-- On x = 1, q · n = 1² = 1, which integrates to 1.
-- On x = 0, q · n = −0 = 0.
-- The y and z faces work the same way.
+### Question 2: Checking the divergence theorem
 
-The total is 1 + 1 + 1 = **3** ✓
+**Volume integral.** $\nabla\cdot\mathbf{q} = 2x + 2y + 2z$, so
+
+$$\iiint_V (2x + 2y + 2z)\,dV = 1 + 1 + 1 = 3$$
+
+**Surface integral.** On the face $x = 1$, $\mathbf{q}\cdot\mathbf{n} = 1^2 = 1$, which integrates to 1. On $x = 0$, $\mathbf{q}\cdot\mathbf{n} = -0^2 = 0$. The $y$ and $z$ faces work the same way, so the total is $1 + 1 + 1 = 3$ ✓.
+
+> **Answer.** Both integrals equal 3.
 
 ## 2. Chemical Engineering
 
-**Question 1: deriving the continuity equation**
+### Question 1: Deriving the continuity equation
 
-Mass balance on a fixed control volume V: the rate of increase of mass equals the net inflow.
+The mass balance on a fixed control volume $V$ says the rate of increase of mass equals the net inflow:
 
-d/dt ∭_V ρ dV = −∯_S ρv · n dS
+$$\frac{d}{dt}\iiint_V \rho\,dV = -\oiint_S \rho\mathbf{v}\cdot\mathbf{n}\,dS$$
 
-By the divergence theorem, ∯_S ρv · n dS = ∭_V ∇ · (ρv) dV. Since V is fixed:
+By the divergence theorem, $\oiint_S \rho\mathbf{v}\cdot\mathbf{n}\,dS = \iiint_V \nabla\cdot(\rho\mathbf{v})\,dV$. Since $V$ is fixed,
 
-∭_V [∂ρ/∂t + ∇ · (ρv)] dV = 0
+$$\iiint_V\left[\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{v})\right]dV = 0$$
 
-This holds for *every* V, so the integrand must be zero everywhere:
+This holds for *every* $V$, so the integrand must be zero everywhere. ∎
 
-**∂ρ/∂t + ∇ · (ρv) = 0** ∎
+> **Answer.** $\dfrac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{v}) = 0$
 
-**Question 2: values of z^{2/3} at 8i**
+### Question 2: Values of $z^{2/3}$ at $8i$
 
-z = 8i = 8e^{i(π/2 + 2kπ)}, so w = 8^{2/3} e^{i(2/3)(π/2 + 2kπ)} = 4e^{i(π/3 + 4kπ/3)}:
-- k = 0: 4e^{iπ/3} = **2 + 2√3 i** (the principal value)
-- k = 1: 4e^{i5π/3} = **2 − 2√3 i**
-- k = 2: 4e^{i3π} = **−4**
+$z = 8i = 8e^{i(\pi/2 + 2k\pi)}$, so
 
-The **branch point is z = 0** (and z = ∞).
+$$w = 8^{2/3}e^{i\frac23\left(\frac{\pi}{2} + 2k\pi\right)} = 4e^{i\left(\frac{\pi}{3} + \frac{4k\pi}{3}\right)}$$
 
-For a channel in the upper half-plane, place the **branch cut along the negative imaginary axis**, taking −π/2 < arg z < 3π/2. The whole flow region then has no cut in it, and w is single-valued and continuous there.
+- $k = 0$: $4e^{i\pi/3} = 2 + 2\sqrt3\,i$ (the principal value)
+- $k = 1$: $4e^{i5\pi/3} = 2 - 2\sqrt3\,i$
+- $k = 2$: $4e^{i3\pi} = -4$
+
+The branch point is $z = 0$ (and $z = \infty$). For a channel in the upper half-plane, place the branch cut along the **negative imaginary axis**, taking $-\pi/2 < \arg z < 3\pi/2$. The whole flow region then has no cut in it, and $w$ is single-valued and continuous there.
+
+> **Answer.** $w = 2 + 2\sqrt3\,i$ (principal), $2 - 2\sqrt3\,i$ and $-4$; branch point $z = 0$; cut along the negative imaginary axis.
 
 ## 3. Computer Engineering
 
-**Question 1: the shoelace formula**
+### Question 1: The shoelace formula
 
-On the straight edge from (xᵢ, yᵢ) to (xᵢ₊₁, yᵢ₊₁), parametrise x = xᵢ + tΔx and y = yᵢ + tΔy for 0 ≤ t ≤ 1. Then
+On the straight edge from $(x_i, y_i)$ to $(x_{i+1}, y_{i+1})$, parametrise $x = x_i + t\,\Delta x$, $y = y_i + t\,\Delta y$ for $0 \le t \le 1$. Then
 
-∫(x dy − y dx) = ∫₀¹ [(xᵢ + tΔx)Δy − (yᵢ + tΔy)Δx] dt = xᵢΔy − yᵢΔx = xᵢyᵢ₊₁ − xᵢ₊₁yᵢ.
+$$\int(x\,dy - y\,dx) = \int_0^1\left[(x_i + t\Delta x)\Delta y - (y_i + t\Delta y)\Delta x\right]dt = x_i\Delta y - y_i\Delta x = x_iy_{i+1} - x_{i+1}y_i$$
 
-Summing over the edges gives **A = ½ Σ (xᵢyᵢ₊₁ − xᵢ₊₁yᵢ)** ∎
-
-For the vertices (0,0), (4,0), (4,3), (2,5), (0,3), the terms are 0, 12, 14, 6 and 0, so the sum is 32 and **A = 16 square units**.
+Summing over the edges gives $A = \tfrac12\sum_i(x_iy_{i+1} - x_{i+1}y_i)$. ∎ For the given vertices the terms are 0, 12, 14, 6 and 0, so the sum is 32 and $A = 16$.
 
 ```
 function polygon_area(xs, ys):
@@ -71,13 +73,13 @@ function polygon_area(xs, ys):
     return abs(s) / 2
 ```
 
-**Question 2: atan2 and phase unwrapping**
+> **Answer.** $A = 16$ square units.
 
-arg z = θ + 2kπ for any integer k, so it has infinitely many values. atan2 always returns the principal value in (−π, π].
+### Question 2: atan2 and phase unwrapping
 
-As a point goes once round the origin counter-clockwise, the true angle rises steadily from 0 to 2π. atan2, however, rises to π and then **jumps to −π** when the point crosses the negative real axis, which is the branch cut.
+$\arg z = \theta + 2k\pi$ for any integer $k$, so it has infinitely many values; atan2 always returns the principal value, with $-\pi < \theta \le \pi$. As a point goes once round the origin counter-clockwise, the true angle rises steadily from 0 to $2\pi$. atan2, however, rises to $\pi$ and then **jumps to $-\pi$** when the point crosses the negative real axis, which is the branch cut.
 
-**Phase unwrapping** removes these jumps. If two consecutive samples differ by more than π, add or subtract 2π from every later sample:
+**Phase unwrapping** removes these jumps: if two consecutive samples differ by more than $\pi$, add or subtract $2\pi$ from every later sample.
 
 ```
 for i = 1..n-1:
@@ -87,104 +89,130 @@ for i = 1..n-1:
     unwrapped[i] = phase[i] + offset
 ```
 
+> **Answer.** atan2 jumps by $2\pi$ at the negative real axis; unwrapping adds back multiples of $2\pi$.
+
 ## 4. Civil Engineering
 
-**Question 1: area and centroid of the slab section**
+### Question 1: Area and centroid of the slab section
 
-The curves meet at x = 0 and x = 2. Going round counter-clockwise, along y = x² from (0, 0) to (2, 4) and back along y = 2x:
+The curves meet at $x = 0$ and $x = 2$. Going round counter-clockwise, along $y = x^2$ from $(0, 0)$ to $(2, 4)$ and back along $y = 2x$:
 
-- A = ½∮(x dy − y dx) = ½[∫₀² (2x² − x²) dx + ∫₂⁰ (2x − 2x) dx] = ½(8/3) = **4/3 m²**
-- x̄ = (1/A)∮ ½x² dy = **1 m**
-- ȳ = (1/A)∮ (−½y²) dx = **8/5 = 1.6 m**
+$$A = \frac12\oint(x\,dy - y\,dx) = \frac12\left[\int_0^2(2x^2 - x^2)\,dx + \int_2^0(2x - 2x)\,dx\right] = \frac12\cdot\frac83 = \frac43$$
 
-Direct check: A = ∫₀² (2x − x²) dx = 4 − 8/3 = 4/3 ✓, and x̄ = (1/A)∫₀² x(2x − x²) dx = (4/3)/(4/3) = 1 ✓
+$$\bar{x} = \frac{1}{A}\oint\frac{x^2}{2}\,dy = 1, \qquad \bar{y} = -\frac{1}{A}\oint\frac{y^2}{2}\,dx = \frac85$$
 
-**Question 2: seepage under the dam**
+Direct check: $A = \int_0^2(2x - x^2)\,dx = 4 - \tfrac83 = \tfrac43$ ✓ and $\bar{x} = \dfrac{1}{A}\int_0^2 x(2x - x^2)\,dx = 1$ ✓.
 
-∇ · **q** = 2 + 3 − 5 = **0**. The field is consistent with an incompressible soil and no sources or sinks.
+> **Answer.** $A = \tfrac43$ m²; centroid $(1,\ 1.6)$ m.
 
-By the divergence theorem, the net outflow from the unit cube is ∭ 0 dV = **0**. Whatever flows in, flows out.
+### Question 2: Seepage under the dam
+
+$$\nabla\cdot\mathbf{q} = 2 + 3 - 5 = 0$$
+
+The field is consistent with an incompressible soil and no sources or sinks. By the divergence theorem, the net outflow from the unit cube is $\iiint 0\,dV = 0$: whatever flows in, flows out.
+
+> **Answer.** $\nabla\cdot\mathbf{q} = 0$; the net outflow is zero.
 
 ## 5. Electrical and Electronics Engineering
 
-**Question 1: Ampère's law in differential form**
+### Question 1: Ampère's law in differential form
 
-∮_C **H** · d**r** = I_enc = ∬_S **J** · **n** dS. By Stokes' theorem the left side equals ∬_S (∇ × **H**) · **n** dS.
+$\oint_C\mathbf{H}\cdot d\mathbf{r} = I_{\text{enc}} = \iint_S\mathbf{J}\cdot\mathbf{n}\,dS$, and by Stokes' theorem the left side equals $\iint_S(\nabla\times\mathbf{H})\cdot\mathbf{n}\,dS$. So
 
-So ∬_S (∇ × **H** − **J**) · **n** dS = 0 for every surface S. Hence **∇ × H = J** ∎
+$$\iint_S\left(\nabla\times\mathbf{H} - \mathbf{J}\right)\cdot\mathbf{n}\,dS = 0$$
 
-Inside the conductor (r < a), the current density is uniform. A circle of radius r encloses I r²/a². Then H · 2πr = I r²/a², so
+for every surface $S$, hence $\nabla\times\mathbf{H} = \mathbf{J}$. ∎
 
-**H = Ir/(2πa²)** in the θ̂ direction. It rises linearly to I/(2πa) at the surface.
+Inside the conductor ($r < a$) the current density is uniform, so a circle of radius $r$ encloses $I r^2/a^2$. Then $H\cdot 2\pi r = I r^2/a^2$, giving
 
-**Question 2: log(−1 + i√3)**
+$$H = \frac{Ir}{2\pi a^2}\,\hat{\boldsymbol{\theta}}$$
 
-|z| = 2 and arg z = 2π/3 + 2kπ, so **log z = ln 2 + i(2π/3 + 2kπ)** for k = 0, ±1, …
+which rises linearly to $I/(2\pi a)$ at the surface.
 
-Principal value: **Log z = 0.693 + 2.094i**.
+> **Answer.** $\nabla\times\mathbf{H} = \mathbf{J}$; inside the conductor $H = Ir/(2\pi a^2)$.
 
-The principal branch gives phase angles only in (−180°, 180°]. A phase of 240° is reported as −120°. When a phase is tracked continuously, for example in a PLL or when measuring the phase shift through a filter, you must stay on one branch and unwrap, not rely on the principal value.
+### Question 2: $\log(-1 + i\sqrt3)$
+
+$\left|z\right| = 2$ and $\arg z = \tfrac{2\pi}{3} + 2k\pi$, so
+
+$$\log z = \ln 2 + i\left(\frac{2\pi}{3} + 2k\pi\right), \qquad k = 0, \pm1, \pm2, \dots$$
+
+The principal value is $\operatorname{Log} z = 0.693 + 2.094i$.
+
+The principal branch gives phase angles only in the range $-180^\circ < \theta \le 180^\circ$, so a phase of $240^\circ$ is reported as $-120^\circ$. When a phase is tracked continuously, for example in a PLL or when measuring the phase shift through a filter, you must stay on one branch and unwrap, not rely on the principal value.
+
+> **Answer.** $\log z = \ln 2 + i(2\pi/3 + 2k\pi)$; principal value $0.693 + 2.094i$.
 
 ## 6. Food Engineering
 
-**Question 1: heat balance for the can**
+### Question 1: Heat balance for the can
 
-Energy balance on the can volume V with surface S:
+The energy balance on the can volume $V$ with surface $S$ is
 
-∭_V ρc_p ∂T/∂t dV = rate of heat in = −∯_S **q** · **n** dS = ∯_S k∇T · **n** dS
+$$\iiint_V\rho c_p\frac{\partial T}{\partial t}\,dV = -\oiint_S\mathbf{q}\cdot\mathbf{n}\,dS = \oiint_S k\nabla T\cdot\mathbf{n}\,dS = \iiint_V\nabla\cdot(k\nabla T)\,dV$$
 
-By the divergence theorem, the right side is ∭_V ∇ · (k∇T) dV. So
+using the divergence theorem in the last step. So $\iiint_V\left[\rho c_p\,\partial T/\partial t - \nabla\cdot(k\nabla T)\right]dV = 0$ for any sub-volume, which gives $\rho c_p\,\partial T/\partial t = \nabla\cdot(k\nabla T)$. ∎
 
-∭_V [ρc_p ∂T/∂t − ∇ · (k∇T)] dV = 0
+> **Answer.** For constant $k$ this is the heat equation $\dfrac{\partial T}{\partial t} = \alpha\nabla^2 T$.
 
-This holds for any sub-volume, so ρc_p ∂T/∂t = ∇ · (k∇T). For constant k this is the heat equation, **∂T/∂t = α∇²T** ∎
+### Question 2: Circulation round the bowl rim
 
-**Question 2: circulation round the bowl rim**
+$\nabla\times\mathbf{v} = (0, 0, 2)$. On the flat disc with $\mathbf{n} = \mathbf{k}$:
 
-∇ × **v** = (0, 0, 2). On the flat disc with **n** = **k**:
+$$\iint(\nabla\times\mathbf{v})\cdot\mathbf{k}\,dS = 2\times\pi(0.15)^2 = 0.045\pi \approx 0.141\ \text{m}^2/\text{s}$$
 
-∬ (∇ × **v**) · **k** dS = 2 × π(0.15)² = **0.045π ≈ 0.141 m²/s**
+Direct check: with $\mathbf{r} = (0.15\cos t,\ 0.15\sin t,\ 0.1)$, $\mathbf{v}\cdot d\mathbf{r} = (0.15)^2(\sin^2 t + \cos^2 t)\,dt$, so $\oint = 0.0225\times2\pi = 0.045\pi$ ✓.
 
-Direct check: **r** = (0.15 cos t, 0.15 sin t, 0.1), so **v** · d**r** = (0.15)²(sin²t + cos²t) dt. Then ∮ = 0.0225 × 2π = 0.045π ✓
+> **Answer.** Circulation $0.045\pi \approx 0.141$ m²/s.
 
 ## 7. Mechanical Engineering
 
-**Question 1: work round the triangle**
+### Question 1: Work round the triangle
 
-∇ × **F** = (∂(x + y)/∂y − ∂(z + x)/∂z, ∂(y + z)/∂z − ∂(x + y)/∂x, ∂(z + x)/∂x − ∂(y + z)/∂y) = (0, 0, 0)
+$$\nabla\times\mathbf{F} = \left(\frac{\partial(x + y)}{\partial y} - \frac{\partial(z + x)}{\partial z},\ \frac{\partial(y + z)}{\partial z} - \frac{\partial(x + y)}{\partial x},\ \frac{\partial(z + x)}{\partial x} - \frac{\partial(y + z)}{\partial y}\right) = (0, 0, 0)$$
 
-By Stokes' theorem, W = ∬ (∇ × **F**) · **n** dS = **0**.
+By Stokes' theorem, $W = \iint(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS = 0$. $\mathbf{F}$ is conservative, with $\phi = xy + yz + zx$: the work round *any* closed path is zero, and the work between two points does not depend on the path.
 
-**F** is conservative, with φ = xy + yz + zx. The work done round *any* closed path is zero, and the work between two points does not depend on the path.
+> **Answer.** $W = 0$; $\mathbf{F} = \nabla(xy + yz + zx)$ is conservative.
 
-**Question 2: flow round the re-entrant corner**
+### Question 2: Flow round the re-entrant corner
 
-- **Branch point: z = 0**, the corner. The other branch point is at infinity.
-- **Branch cut**: along the ray bisecting the solid wall region outside the 3π/2 flow sector, so the flow domain contains no cut.
+The branch point is $z = 0$, the corner (the other is at infinity). Place the branch cut along a ray inside the solid wall, outside the $3\pi/2$ flow sector, so the flow domain contains no cut.
 
-At z = 1 = e^{i2kπ}, the values are w = e^{i4kπ/3}:
-- k = 0: **1** (principal)
-- k = 1: **e^{i4π/3} = −½ − (√3/2)i**
-- k = 2: **e^{i2π/3} = −½ + (√3/2)i**
+At $z = 1 = e^{i2k\pi}$, the values are $w = e^{i4k\pi/3}$:
 
-The velocity is dw/dz = (2/3)z^{−1/3}, with |dw/dz| = (2/3)|z|^{−1/3} → ∞ as z → 0. The flow cannot turn a sharp convex corner smoothly, so the velocity becomes infinite there. In a real fluid, viscosity produces **flow separation** at such corners.
+- $k = 0$: $1$ (principal)
+- $k = 1$: $e^{i4\pi/3} = -\tfrac12 - \tfrac{\sqrt3}{2}i$
+- $k = 2$: $e^{i2\pi/3} = -\tfrac12 + \tfrac{\sqrt3}{2}i$
+
+The velocity is
+
+$$\frac{dw}{dz} = \frac23 z^{-1/3}, \qquad \left|\frac{dw}{dz}\right| = \frac23\left|z\right|^{-1/3} \to \infty \ \text{ as } z \to 0$$
+
+The flow cannot turn a sharp convex corner smoothly, so the velocity becomes infinite there. In a real fluid, viscosity produces **flow separation** at such corners.
+
+> **Answer.** Branch point $z = 0$; other values $-\tfrac12 \mp \tfrac{\sqrt3}{2}i$; $\left|dw/dz\right| \propto \left|z\right|^{-1/3}$ is unbounded at the corner.
 
 ## 8. Petroleum Engineering
 
-**Question 1: flux with and without a well**
+### Question 1: Flux with and without a well
 
-With no wells, ∇ · **u** = 0 everywhere in V. By the divergence theorem, ∯_S **u** · **n** dS = ∭_V ∇ · **u** dV = **0**. The net flux through any closed surface is zero.
+With no wells, $\nabla\cdot\mathbf{u} = 0$ everywhere in $V$, so by the divergence theorem
 
-With a producing well of rate q inside V, the well is a point (or line) sink, and ∇ · **u** = −q δ(**r** − **r**_w). Then
+$$\oiint_S\mathbf{u}\cdot\mathbf{n}\,dS = \iiint_V\nabla\cdot\mathbf{u}\,dV = 0$$
 
-∯_S **u** · **n** dS = −q
+With a producing well of rate $q$ inside $V$, the well is a point (or line) sink, $\nabla\cdot\mathbf{u} = -q\,\delta(\mathbf{r} - \mathbf{r}_w)$, and
 
-The net *inflow* through any closed surface around the well equals the production rate q, whatever the shape of the surface. This is the basis of the well boundary condition 2πr h u_r = −q at r = r_w.
+$$\oiint_S\mathbf{u}\cdot\mathbf{n}\,dS = -q$$
 
-**Question 2: the multivalued stream function**
+The net *inflow* through any closed surface around the well equals the production rate $q$, whatever the shape of the surface. This is the basis of the well boundary condition $2\pi r h\,u_r = -q$ at $r = r_w$.
 
-w = (q/2π)(ln r + iθ), so ψ = Im w = **(q/2π)θ**.
+> **Answer.** Zero net flux without wells; $\oiint\mathbf{u}\cdot\mathbf{n}\,dS = -q$ around a producer.
 
-θ increases by 2π on each circuit, so **ψ increases by q** each time round the well. ψ is therefore multivalued, with its branch point at the well.
+### Question 2: The multivalued stream function
 
-The difference in ψ between two streamlines equals the volumetric flow between them. A jump of exactly q on going once round means the **total flow crossing any closed curve around the well equals the well's production rate q** (per unit thickness).
+$w = \dfrac{q}{2\pi}(\ln r + i\theta)$, so $\psi = \mathrm{Im}\, w = \dfrac{q}{2\pi}\theta$. Since $\theta$ increases by $2\pi$ on each circuit, $\psi$ increases by $q$ each time round the well: $\psi$ is multivalued, with its branch point at the well.
+
+The difference in $\psi$ between two streamlines equals the volumetric flow between them. A jump of exactly $q$ on going once round means the total flow crossing any closed curve around the well equals the well's production rate $q$ (per unit thickness).
+
+> **Answer.** $\psi = q\theta/(2\pi)$ jumps by $q$ per circuit, which is the production rate.

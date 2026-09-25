@@ -2,179 +2,199 @@
 
 ## 1. Agricultural Engineering
 
-**Question 1: groundwater flow under the drainage field**
+### Question 1: Groundwater flow under the drainage field
 
-φ_xx + φ_yy = 2 − 2 = 0, so φ is **harmonic**.
+$\phi_{xx} + \phi_{yy} = 2 - 2 = 0$, so $\phi$ is harmonic. From the Cauchy–Riemann equations:
 
-Find ψ from the Cauchy–Riemann equations:
-- ψ_y = φ_x = 2x, so ψ = 2xy + g(x).
-- ψ_x = −φ_y = 2y, so 2y + g′(x) = 2y and g is a constant.
+$$\psi_y = \phi_x = 2x \ \Rightarrow\ \psi = 2xy + g(x), \qquad \psi_x = -\phi_y = 2y \ \Rightarrow\ g'(x) = 0$$
 
-So **ψ = 2xy** and **w = φ + iψ = (x + iy)² = z²**.
+So $\psi = 2xy$ and
 
-The streamlines xy = const are **rectangular hyperbolae**. This is flow into a corner. The complex velocity is dw/dz = 2z = 0 only at **z = 0**, which is the **stagnation point**.
+$$w = \phi + i\psi = (x + iy)^2 = z^2$$
 
-**Question 2: impulse response of the greenhouse controller**
+The streamlines $xy = \text{const}$ are rectangular hyperbolae: this is flow into a corner. The complex velocity $dw/dz = 2z$ vanishes only at $z = 0$.
 
-G has **no finite zeros** and **simple poles at s = −1, −2, −5**. The residues of e^{st}G(s) are:
-- s = −1: 10e^{−t}/((1)(4)) = 2.5e^{−t}
-- s = −2: 10e^{−2t}/((−1)(3)) = −(10/3)e^{−2t}
-- s = −5: 10e^{−5t}/((−4)(−3)) = (5/6)e^{−5t}
+> **Answer.** $\psi = 2xy$, $w = z^2$; the stagnation point is the origin.
 
-**g(t) = 2.5e^{−t} − (10/3)e^{−2t} + (5/6)e^{−5t}** for t ≥ 0
+### Question 2: Impulse response of the greenhouse controller
 
-Check: g(0) = 2.5 − 3.333 + 0.833 = 0 ✓, as expected for a third-order system.
+$G$ has no finite zeros and simple poles at $s = -1, -2, -5$. The residues of $e^{st}G(s)$ are
+
+$$\operatorname*{Res}_{s=-1} = \frac{10e^{-t}}{(1)(4)} = 2.5e^{-t}, \qquad \operatorname*{Res}_{s=-2} = \frac{10e^{-2t}}{(-1)(3)} = -\frac{10}{3}e^{-2t}, \qquad \operatorname*{Res}_{s=-5} = \frac{10e^{-5t}}{(-4)(-3)} = \frac56e^{-5t}$$
+
+Check: $g(0) = 2.5 - 3.333 + 0.833 = 0$ ✓, as expected for a third-order system.
+
+> **Answer.** $g(t) = 2.5e^{-t} - \tfrac{10}{3}e^{-2t} + \tfrac56e^{-5t}$ for $t \ge 0$.
 
 ## 2. Chemical Engineering
 
-**Question 1: which functions are analytic**
+### Question 1: Which functions are analytic
 
-- For f = z̄: u = x and v = −y, so u_x = 1 but v_y = −1. The first Cauchy–Riemann equation fails at **every** point, so z̄ is analytic nowhere.
-- For f = eˣ(cos y + i sin y): u = eˣ cos y and v = eˣ sin y.
-  - u_x = eˣ cos y = v_y ✓
-  - u_y = −eˣ sin y = −v_x ✓
+For $f = \bar{z}$: $u = x$ and $v = -y$, so $u_x = 1$ but $v_y = -1$. The first Cauchy–Riemann equation fails at every point, so $\bar{z}$ is analytic nowhere.
 
-  The partial derivatives are continuous, so f is **analytic everywhere**. Writing e^{x+iy} = eˣe^{iy} shows that **f = e^z**.
+For $f = e^{x}(\cos y + i\sin y)$: $u = e^x\cos y$ and $v = e^x\sin y$, so
 
-Why it matters: if the concentration is c = Re f(z) with f analytic, then c automatically satisfies Laplace's equation, which is steady diffusion without reaction. The iso-concentration lines and flux lines (Im f) are then automatically orthogonal. If f is not analytic, none of this holds.
+$$u_x = e^x\cos y = v_y, \qquad u_y = -e^x\sin y = -v_x$$
 
-**Question 2: step response of the process**
+The partial derivatives are continuous, so $f$ is analytic everywhere, and $e^{x + iy} = e^xe^{iy}$ shows that $f = e^z$.
 
-C(s) = 1/(s(2s + 1)²) = (1/4)/(s(s + ½)²). It has a **simple pole at s = 0** and a **double pole at s = −½**, and no zeros.
+If the concentration is $c = \mathrm{Re}\, f(z)$ with $f$ analytic, then $c$ automatically satisfies Laplace's equation (steady diffusion without reaction), and the iso-concentration lines and flux lines ($\mathrm{Im}\, f$) are orthogonal. Without analyticity none of this holds.
 
-- Residue at 0: e^{0}/(4(½)²) = 1.
-- Residue at −½: d/ds[e^{st}/(4s)] at s = −½ = [te^{st}/(4s) − e^{st}/(4s²)] at s = −½ = −(t/2)e^{−t/2} − e^{−t/2}.
+> **Answer.** $\bar{z}$ is nowhere analytic; $e^x(\cos y + i\sin y) = e^z$ is analytic everywhere.
 
-**c(t) = 1 − e^{−t/2} − (t/2)e^{−t/2} = 1 − (1 + t/2)e^{−t/2}** (t in minutes)
+### Question 2: Step response of the process
+
+$C(s) = \dfrac{1}{s(2s + 1)^2} = \dfrac{1/4}{s\left(s + \tfrac12\right)^2}$ has a simple pole at $s = 0$, a double pole at $s = -\tfrac12$, and no zeros.
+
+$$\operatorname*{Res}_{s=0} = \frac{1}{4\left(\tfrac12\right)^2} = 1, \qquad \operatorname*{Res}_{s=-1/2} = \frac{d}{ds}\left[\frac{e^{st}}{4s}\right]_{s=-1/2} = -\frac{t}{2}e^{-t/2} - e^{-t/2}$$
+
+> **Answer.** $c(t) = 1 - \left(1 + \tfrac{t}{2}\right)e^{-t/2}$ ($t$ in minutes).
 
 ## 3. Computer Engineering
 
-**Question 1: filter stability**
+### Question 1: Filter stability
 
-- **Zeros**: z² − 1 = 0, so **z = ±1**.
-- **Poles**: z² − 0.5z + 0.06 = 0, so **z = 0.2 and z = 0.3**.
-
-Both poles are inside |z| = 1, so the filter is **stable**. The zeros on the unit circle block DC (z = 1) and the Nyquist frequency (z = −1), so this is a band-pass filter.
+The zeros are the roots of $z^2 - 1 = 0$, so $z = \pm1$. The poles are the roots of $z^2 - 0.5z + 0.06 = 0$, so $z = 0.2$ and $z = 0.3$. Both poles lie inside the unit circle, so the filter is **stable**. The zeros on the unit circle block DC ($z = 1$) and the Nyquist frequency ($z = -1$), so this is a band-pass filter.
 
 ```
 import numpy as np
-def is_stable(den):              # den = [a0, a1, ..., aN] of the z-polynomial
+def is_stable(den):   # den: denominator coefficients
     poles = np.roots(den)
     return all(abs(p) < 1 for p in poles), poles
 ```
 
-**Question 2: inverse z-transform**
+> **Answer.** Zeros $\pm1$; poles $0.2$ and $0.3$; stable.
 
-X(z)z^{n−1} = zⁿ/((z − ½)(z − ¼)). For n ≥ 0, both poles are inside the contour |z| = R > ½.
+### Question 2: Inverse z-transform
 
-- Res at ½: (½)ⁿ/(½ − ¼) = 4(½)ⁿ
-- Res at ¼: (¼)ⁿ/(¼ − ½) = −4(¼)ⁿ
+$X(z)z^{n-1} = \dfrac{z^n}{(z - \tfrac12)(z - \tfrac14)}$. For $n \ge 0$ both poles lie inside the contour:
 
-**x[n] = 4[(½)ⁿ − (¼)ⁿ]** for n ≥ 0, giving x = 0, 1, 0.75, 0.4375, …
+$$\operatorname*{Res}_{z=1/2} = \frac{(1/2)^n}{1/2 - 1/4} = 4\left(\tfrac12\right)^n, \qquad \operatorname*{Res}_{z=1/4} = \frac{(1/4)^n}{1/4 - 1/2} = -4\left(\tfrac14\right)^n$$
+
+> **Answer.** $x[n] = 4\left[\left(\tfrac12\right)^n - \left(\tfrac14\right)^n\right]$ for $n \ge 0$, that is $0,\ 1,\ 0.75,\ 0.4375, \dots$
 
 ## 4. Civil Engineering
 
-**Question 1: seepage under the sheet pile**
+### Question 1: Seepage under the sheet pile
 
-Let z = b cosh w with w = φ + iψ:
-- **x = b cosh φ cos ψ**
-- **y = b sinh φ sin ψ**
+Let $z = b\cosh w$ with $w = \phi + i\psi$. Then
 
-- Holding φ fixed: x²/(b² cosh²φ) + y²/(b² sinh²φ) = 1. The equipotentials are **confocal ellipses**.
-- Holding ψ fixed: x²/(b² cos²ψ) − y²/(b² sin²ψ) = 1. The streamlines are **confocal hyperbolae**.
+$$x = b\cosh\phi\cos\psi, \qquad y = b\sinh\phi\sin\psi$$
 
-Both families have their foci at z = ±b, which are the **branch points** of cosh⁻¹(z/b). There dz/dw = b sinh w = 0, so the inverse map is not analytic.
+Holding $\phi$ fixed and eliminating $\psi$ gives the equipotentials, which are confocal ellipses:
 
-**Question 2: ∫_{−∞}^{∞} dx/(x² + 4)²**
+$$\frac{x^2}{b^2\cosh^2\phi} + \frac{y^2}{b^2\sinh^2\phi} = 1$$
 
-f(z) = 1/(z² + 4)² has double poles at z = ±2i. Only 2i is in the upper half-plane.
+Holding $\psi$ fixed and eliminating $\phi$ gives the streamlines, which are confocal hyperbolae:
 
-Res at 2i: d/dz[1/(z + 2i)²] at z = 2i = −2/(4i)³ = −2/(−64i) = 1/(32i).
+$$\frac{x^2}{b^2\cos^2\psi} - \frac{y^2}{b^2\sin^2\psi} = 1$$
 
-On the big semicircle, |f| ~ 1/R⁴, so that part of the integral → 0. Therefore
+Both families have their foci at $z = \pm b$, which are the branch points of $\cosh^{-1}(z/b)$. There $dz/dw = b\sinh w = 0$, so the inverse map is not analytic.
 
-∫ = 2πi · 1/(32i) = **π/16 ≈ 0.196**
+> **Answer.** Equipotentials are ellipses and streamlines are hyperbolae, all with foci at the branch points $z = \pm b$.
+
+### Question 2: $\int_{-\infty}^{\infty} dx/(x^2 + 4)^2$
+
+$f(z) = \dfrac{1}{(z^2 + 4)^2}$ has double poles at $z = \pm2i$; only $2i$ is in the upper half-plane.
+
+$$\operatorname*{Res}_{z=2i} f = \frac{d}{dz}\left[\frac{1}{(z + 2i)^2}\right]_{z=2i} = \frac{-2}{(4i)^3} = \frac{1}{32i}$$
+
+On the large semicircle $\left|f\right| \sim 1/R^4$, so that part of the integral tends to zero. Therefore
+
+$$\int_{-\infty}^{\infty}\frac{dx}{(x^2 + 4)^2} = 2\pi i\cdot\frac{1}{32i} = \frac{\pi}{16}$$
+
+> **Answer.** $\pi/16 \approx 0.196$
 
 ## 5. Electrical and Electronics Engineering
 
-**Question 1: the Smith chart mapping**
+### Question 1: The Smith chart mapping
 
-Try w = (z − 1)/(z + 1):
-- z = 0 → −1 ✓
-- z = 1 → 0 ✓
-- z = ∞ → 1 ✓
+Try $w = \dfrac{z - 1}{z + 1}$: $z = 0 \mapsto -1$, $z = 1 \mapsto 0$ and $z = \infty \mapsto 1$ ✓. A bilinear transformation is fixed uniquely by three points, so this is the map.
 
-A bilinear transformation is fixed uniquely by three points, so **w = (z − 1)/(z + 1)**.
+If $\mathrm{Re}\, z \ge 0$, then $z$ is at least as close to 1 as to $-1$, so $\left|z - 1\right| \le \left|z + 1\right|$ and $\left|w\right| \le 1$. The imaginary axis maps to the unit circle.
 
-If Re z ≥ 0, then z is at least as close to 1 as to −1, so |z − 1| ≤ |z + 1| and **|w| ≤ 1**. The imaginary axis, |z − 1| = |z + 1|, maps to the unit circle |w| = 1.
+With $z = Z_L/Z_0$ as the normalised impedance, $w$ is the reflection coefficient $\Gamma = \dfrac{Z_L - Z_0}{Z_L + Z_0}$. Every passive load ($\mathrm{Re}\, z \ge 0$) plots inside the unit disc; the Smith chart is that disc with the circles of constant resistance and constant reactance drawn on it.
 
-With z = Z_L/Z₀ as the normalised impedance, w is the **reflection coefficient Γ = (Z_L − Z₀)/(Z_L + Z₀)**. Every passive load (Re z ≥ 0) plots inside the unit disc. The Smith chart is that disc with the circles of constant resistance and constant reactance drawn on it.
+> **Answer.** $w = \dfrac{z - 1}{z + 1}$, which maps $\mathrm{Re}\, z \ge 0$ onto the unit disc.
 
-**Question 2: RLC impulse response**
+### Question 2: RLC impulse response
 
-s² + 2s + 5 = 0 gives **s = −1 ± 2i**, two **simple poles**.
+$s^2 + 2s + 5 = 0$ gives two simple poles, $s = -1 \pm 2i$. Then
 
-h(t) = Σ Res[e^{st}H(s)] = e^{(−1+2i)t}/(4i) + e^{(−1−2i)t}/(−4i) = e^{−t}(e^{2it} − e^{−2it})/(4i)
+$$h(t) = \frac{e^{(-1 + 2i)t}}{4i} + \frac{e^{(-1 - 2i)t}}{-4i} = e^{-t}\,\frac{e^{2it} - e^{-2it}}{4i} = \frac12e^{-t}\sin 2t$$
 
-**h(t) = ½ e^{−t} sin 2t**
+This is an underdamped response, and it is stable because the poles are in the left half-plane.
 
-This is an underdamped response that is stable, since the poles are in the left half-plane.
+> **Answer.** $h(t) = \tfrac12 e^{-t}\sin 2t$
 
 ## 6. Food Engineering
 
-**Question 1: steady slab temperature**
+### Question 1: Steady slab temperature
 
-Let u = T − 20 = 5(x³ − 3xy²). Then u_xx = 30x and u_yy = −30x, so ∇²u = 0 and **T is harmonic**.
+Let $u = T - 20 = 5(x^3 - 3xy^2)$. Then $u_{xx} = 30x$ and $u_{yy} = -30x$, so $\nabla^2 u = 0$ and $T$ is harmonic. From the Cauchy–Riemann equations:
 
-Find v from the Cauchy–Riemann equations:
-- v_y = u_x = 15x² − 15y², so v = 15x²y − 5y³ + g(x).
-- v_x = −u_y = 30xy, and 30xy + g′(x) = 30xy, so g is a constant.
+$$v_y = u_x = 15x^2 - 15y^2 \ \Rightarrow\ v = 15x^2y - 5y^3 + g(x), \qquad v_x = -u_y = 30xy \ \Rightarrow\ g'(x) = 0$$
 
-**v = 5(3x²y − y³)**. Its level curves are the heat-flow lines.
+So $v = 5(3x^2y - y^3)$, whose level curves are the heat-flow lines, and
 
-**f(z) = u + iv = 5(x + iy)³ = 5z³**, so T = 20 + Re(5z³).
+$$f(z) = u + iv = 5(x + iy)^3 = 5z^3$$
 
-**Question 2: ∮ e^{2z}/(z − 1)³ dz on |z| = 2**
+> **Answer.** $v = 5(3x^2y - y^3)$; $f(z) = 5z^3$, so $T = 20 + \mathrm{Re}\,(5z^3)$.
 
-The point z = 1 is inside C. Use Cauchy's formula for derivatives, ∮ f(z)/(z − a)^{n+1} dz = 2πi f⁽ⁿ⁾(a)/n!, with f = e^{2z}, n = 2 and a = 1.
+### Question 2: $\oint e^{2z}/(z - 1)^3\,dz$
 
-f″(z) = 4e^{2z}, so the integral is 2πi · 4e²/2! = **4πe² i ≈ 92.9i**
+The point $z = 1$ lies inside $C$. Using Cauchy's formula for derivatives, $\oint\dfrac{f(z)}{(z - a)^{n+1}}\,dz = \dfrac{2\pi i}{n!}f^{(n)}(a)$, with $f = e^{2z}$, $n = 2$ and $a = 1$, and $f''(z) = 4e^{2z}$:
+
+$$\oint_C\frac{e^{2z}}{(z - 1)^3}\,dz = \frac{2\pi i}{2!}\cdot4e^{2} = 4\pi e^2\,i$$
+
+> **Answer.** $4\pi e^2 i \approx 92.9i$
 
 ## 7. Mechanical Engineering
 
-**Question 1: the Joukowski transformation**
+### Question 1: The Joukowski transformation
 
-- **Singularities**: a simple pole at z = 0, and z = ∞.
-- **Critical points**: dw/dz = 1 − 1/z² = 0 gives **z = ±1**. The map is not conformal there, and these points become the sharp trailing edge of the aerofoil.
+The singularities are a simple pole at $z = 0$ and $z = \infty$. The critical points satisfy
 
-On |z| = 1, write z = e^{iθ}. Then w = e^{iθ} + e^{−iθ} = **2 cos θ**, which is real and runs over **[−2, 2]**, covered twice. The unit circle collapses onto a flat plate. Shifting the circle's centre off the origin, while keeping it through z = 1, produces a cambered, thick aerofoil.
+$$\frac{dw}{dz} = 1 - \frac{1}{z^2} = 0 \quad\Rightarrow\quad z = \pm1$$
 
-**Question 2: ∫₀^{2π} dθ/(5 + 4 cos θ)**
+The map is not conformal there; these points become the sharp trailing edge of the aerofoil. On the unit circle, $z = e^{i\theta}$ and
 
-Let z = e^{iθ}, so cos θ = (z + z⁻¹)/2 and dθ = dz/(iz):
+$$w = e^{i\theta} + e^{-i\theta} = 2\cos\theta \in [-2, 2]$$
 
-∮_{|z|=1} dz / (iz(5 + 2z + 2/z)) = ∮ dz / (i(2z² + 5z + 2)) = ∮ dz / (2i(z + ½)(z + 2))
+so the circle collapses onto a flat plate, covered twice. Shifting the circle's centre off the origin, while keeping it through $z = 1$, produces a cambered, thick aerofoil.
 
-Only z = −½ is inside the circle. Res = 1/(2i · (3/2)) = 1/(3i).
+> **Answer.** Pole at $z = 0$; critical points $z = \pm1$; the unit circle maps to $[-2, 2]$.
 
-**∫ = 2πi · 1/(3i) = 2π/3 ≈ 2.094**
+### Question 2: $\int_0^{2\pi} d\theta/(5 + 4\cos\theta)$
+
+Let $z = e^{i\theta}$, so $\cos\theta = \tfrac12(z + z^{-1})$ and $d\theta = \dfrac{dz}{iz}$:
+
+$$\int_0^{2\pi}\frac{d\theta}{5 + 4\cos\theta} = \oint_{\left|z\right| = 1}\frac{dz}{iz\left(5 + 2z + 2/z\right)} = \oint\frac{dz}{2i\left(z + \tfrac12\right)(z + 2)}$$
+
+Only $z = -\tfrac12$ is inside the circle, with residue $\dfrac{1}{2i\cdot\tfrac32} = \dfrac{1}{3i}$. So the integral is $2\pi i\cdot\dfrac{1}{3i} = \dfrac{2\pi}{3}$.
+
+> **Answer.** $2\pi/3 \approx 2.094$
 
 ## 8. Petroleum Engineering
 
-**Question 1: injector–producer pair**
+### Question 1: Injector–producer pair
 
-w has **logarithmic branch points at z = −a (source) and z = a (sink)**. These are not poles, because log is multivalued. The complex velocity dw/dz = (q/2π)[1/(z + a) − 1/(z − a)] has **simple poles** at ±a.
+$w$ has **logarithmic branch points** at $z = -a$ (source) and $z = a$ (sink). These are not poles, because log is multivalued. The complex velocity
 
-The equipotentials are φ = (q/2π) ln(|z + a|/|z − a|) = const, which means |z + a|/|z − a| = k. This is the locus of **Apollonius circles**, which have ±a as inverse points.
+$$\frac{dw}{dz} = \frac{q}{2\pi}\left[\frac{1}{z + a} - \frac{1}{z - a}\right] = \frac{q}{2\pi}\cdot\frac{-2a}{z^2 - a^2}$$
 
-Stagnation points: dw/dz = (q/2π) · (−2a)/(z² − a²), which is never zero for finite z. So there are **no stagnation points** in the finite plane. All the fluid injected at −a goes to the producer at a.
+has simple poles at $\pm a$. The equipotentials are $\phi = \dfrac{q}{2\pi}\ln\dfrac{\left|z + a\right|}{\left|z - a\right|} = \text{const}$, that is $\dfrac{\left|z + a\right|}{\left|z - a\right|} = k$: the **Apollonius circles**, which have $\pm a$ as inverse points. $dw/dz$ is never zero for finite $z$, so there are no stagnation points. All the fluid injected at $-a$ goes to the producer at $a$.
 
-**Question 2: mapping the off-centre well to the centre**
+> **Answer.** Logarithmic branch points at $\pm a$; equipotentials are Apollonius circles; no stagnation points.
 
-**w = R(z − z₀)/(R² − z̄₀z)**, where z̄₀ is the complex conjugate of z₀.
+### Question 2: Mapping the off-centre well to the centre
 
-- At z = z₀, w = 0 ✓
-- On |z| = R, z z̄ = R², so |R² − z̄₀z| = |z||z̄ − z̄₀| = R|z − z₀|. Hence **|w| = 1** ✓
-- The point z = 0 maps to −z₀/R, which is inside the unit disc, so the inside maps to the inside.
+$$w = \frac{R(z - z_0)}{R^2 - \bar{z}_0 z}$$
 
-The pressure for a *centred* well in a circular reservoir is known: p = p_w + (qμ/(2πkh)) ln(r/r_w). Because the map is conformal, Laplace's equation is preserved. Taking that solution in the w-plane and substituting w(z) gives the pressure field of the **off-centre well** directly. It also gives the well's effective shape factor for productivity calculations.
+- At $z = z_0$, $w = 0$ ✓.
+- On $\left|z\right| = R$, $z\bar{z} = R^2$, so $\left|R^2 - \bar{z}_0z\right| = \left|z\right|\left|\bar{z} - \bar{z}_0\right| = R\left|z - z_0\right|$, hence $\left|w\right| = 1$ ✓.
+- $z = 0$ maps to $-z_0/R$, which is inside the unit disc, so the inside maps to the inside.
+
+The pressure for a *centred* well in a circular reservoir is known: $p = p_w + \dfrac{q\mu}{2\pi kh}\ln\dfrac{r}{r_w}$. Because the map is conformal, Laplace's equation is preserved. Taking that solution in the $w$-plane and substituting $w(z)$ gives the pressure field of the off-centre well directly, and also its effective shape factor for productivity calculations.
+
+> **Answer.** $w = \dfrac{R(z - z_0)}{R^2 - \bar{z}_0z}$
