@@ -6,7 +6,7 @@ Needs pandoc (for example `pip install pypandoc_binary`). The Markdown sources u
 LaTeX maths ($...$ and $$...$$); pandoc turns these into Word (OMML) equations
 that can be edited with Word's built-in equation editor.
 """
-import os, re, shutil, subprocess, sys, tempfile, zipfile
+import os, re, shutil, subprocess, sys, tempfile, unicodedata, zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -85,6 +85,36 @@ def questions(path):
     return qs
 
 
+def bold_symbols(text):
+    """Write bold maths symbols as Unicode mathematical bold characters.
+
+    \\mathbf{a} becomes U+1D41A (bold a), \\boldsymbol{\\phi} a bold italic phi and \\mathbb{R}
+    the double-struck R. Word stores bold maths this way itself, and viewers that ignore
+    equation styles (such as LibreOffice, which makes the PDF) still show them bold.
+    """
+    def char(c):
+        if c.isdigit():
+            return chr(0x1D7CE + int(c))
+        if c in ('phi', 'theta'):
+            # \\phi is the straight phi (U+03D5), so use the matching "phi symbol".
+            return unicodedata.lookup('MATHEMATICAL BOLD ITALIC ' + {'phi': 'PHI SYMBOL', 'theta': 'SMALL THETA'}[c])
+        if c == 'R2':
+            return '\u211D'
+        return unicodedata.lookup(f"MATHEMATICAL BOLD {'CAPITAL' if c.isupper() else 'SMALL'} {c.upper()}")
+
+    def sub(m):
+        c = m.group(1) or m.group(2) or 'R2'
+        # After a control word such as \\cdot, TeX would read the letter as part of the
+        # command name, so separate them with a space (maths ignores spaces).
+        before = m.string[m.start() - 1] if m.start() else ''
+        return (' ' if before.isascii() and before.isalpha() else '') + char(c)
+
+    text = re.sub(r'\\mathbf\{([A-Za-z0-9])\}|\\boldsymbol\{\\(phi|theta)\}|\\mathbb\{R\}', sub, text)
+    if re.search(r'\\mathbf|\\boldsymbol|\\mathbb', text):
+        sys.exit('bold_symbols: unhandled \\mathbf, \\boldsymbol or \\mathbb')
+    return text
+
+
 def check_bars(name, text):
     """Bare | in maths shows as a logic symbol in some viewers; use \\left| ... \\right| or \\mid."""
     for m in re.finditer(r'\$\$(.+?)\$\$|\$(.+?)\$', text, re.S):
@@ -146,9 +176,12 @@ def main():
     pandoc = pandoc_path()
     subprocess.run([sys.executable, os.path.join(HERE, 'make_reference.py'), pandoc, ref], check=True)
     with open(src, 'w', encoding='utf-8') as f:
-        f.write(solutions_markdown())
-    subprocess.run([pandoc, src, '-f', 'markdown-auto_identifiers', '-o', OUT, '--reference-doc', ref,
-                    '--metadata', 'title-meta=GET 311 Worked Solutions', '--metadata', 'lang=en-GB'], check=True)
+        f.write(bold_symbols(solutions_markdown()))
+    run = subprocess.run([pandoc, src, '-f', 'markdown-auto_identifiers', '-o', OUT, '--reference-doc', ref,
+                          '--metadata', 'title-meta=GET 311 Worked Solutions', '--metadata', 'lang=en-GB'],
+                         capture_output=True, text=True)
+    if run.returncode or 'WARNING' in run.stderr:
+        sys.exit(run.stderr or f'pandoc failed ({run.returncode})')
     tidy(OUT)
     shutil.rmtree(work)
     print('wrote', OUT)
