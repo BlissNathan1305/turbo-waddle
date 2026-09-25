@@ -7,6 +7,12 @@ This folder holds a study companion for GET 311. For each topic in the course ou
 - a **short introduction** to the topic, and
 - **two application questions for each of the eight engineering departments** that take the course (16 questions per topic, 128 in total).
 
+Worked solutions to all 128 questions are in the [`solutions/`](solutions/) folder.
+
+Both are also available as Word documents:
+- `GET311-Engineering-Mathematics-III.docx`: the topic introductions and questions.
+- `GET311-Engineering-Mathematics-III-Solutions.docx`: the worked solutions, each shown under its question.
+
 ## Learning Outcomes
 
 By the end of the course, students should be able to:
