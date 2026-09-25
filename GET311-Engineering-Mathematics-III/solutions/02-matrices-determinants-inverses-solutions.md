@@ -16,31 +16,7 @@ The determinant is the area scale factor. Any region of input motion is mapped t
 
 > **Answer.** $\det A = 5$; the linkage multiplies areas by 5.
 
-## 2. Chemical Engineering
-
-### Question 1: Feed flow rates
-
-$\det C = 0.14 \ne 0$, so $C$ is invertible, and
-
-$$C^{-1} = \frac{1}{14}\begin{bmatrix} 29 & -11 & -1 \\ -19 & 41 & -9 \\ 4 & -16 & 24 \end{bmatrix}, \qquad \mathbf{F} = C^{-1}\begin{bmatrix} 50 \\ 40 \\ 60 \end{bmatrix} = \begin{bmatrix} 67.86 \\ 10.71 \\ 71.43 \end{bmatrix}\ \text{kg/h}$$
-
-Check, component 1: $0.6(67.86) + 0.2(10.71) + 0.1(71.43) = 50.0$ ✓
-
-> **Answer.** $F_1 = 67.86$ kg/h, $F_2 = 10.71$ kg/h, $F_3 = 71.43$ kg/h.
-
-### Question 2: Rows that sum to zero
-
-Let $\mathbf{1} = (1, 1, 1)^{T}$. If every row of $K$ sums to zero, then
-
-$$K\mathbf{1} = \mathbf{0}$$
-
-so $K$ has a non-zero vector in its null space, its columns are dependent, and $\det K = 0$.
-
-Physically, the reactions only move mass between species. The total amount is conserved, so one combination of concentrations never changes and cannot be solved for independently. This also means there is always a non-trivial equilibrium (steady-state) composition.
-
-> **Answer.** $K\mathbf{1} = \mathbf{0}$ with $\mathbf{1} \ne \mathbf{0}$, so $\det K = 0$: conservation of mass removes one degree of freedom.
-
-## 3. Computer Engineering
+## 2. Computer Engineering
 
 ### Question 1: Hill cipher key
 
@@ -62,7 +38,7 @@ $M^{-1}$ rotates by $-90^\circ$ and then translates by $(-4, 2)$. The determinan
 
 > **Answer.** $\det M = 1$; $M^{-1}$ is given above.
 
-## 4. Civil Engineering
+## 3. Civil Engineering
 
 ### Question 1: Flexibility matrix and displacements
 
@@ -86,7 +62,7 @@ The two missing ranks are the two rigid-body motions: translating and rotating t
 
 > **Answer.** $\operatorname{rank} K = 2$, so $\det K = 0$; supports must remove the two rigid-body modes.
 
-## 5. Electrical and Electronics Engineering
+## 4. Electrical and Electronics Engineering
 
 ### Question 1: Admittance matrix and port currents
 
@@ -104,7 +80,7 @@ $$\det G = 0.5\left(0.7\cdot 0.4 - 0.3\cdot 0.3\right) + 0.2\left(-0.2\cdot 0.4 
 
 > **Answer.** $\det G = 0.079 \ne 0$, so the node voltages are unique.
 
-## 6. Food Engineering
+## 5. Food Engineering
 
 ### Question 1: Batches that use all the stock
 
@@ -126,7 +102,7 @@ The inverse is symmetric too: the inverse of a symmetric matrix is always symmet
 
 > **Answer.** $\det H = 56$; $H^{-1}$ is given above.
 
-## 7. Mechanical Engineering
+## 6. Mechanical Engineering
 
 ### Question 1: Properties of the rotation matrix
 
@@ -145,21 +121,3 @@ $$M^{-1} = \operatorname{diag}\left(\tfrac12, 1\right), \qquad M^{-1}K = \begin{
 Its eigenvalues are the squared natural frequencies $\omega^2$ (see Topic 3).
 
 > **Answer.** $M^{-1}K = \begin{bmatrix} 150 & -50 \\ -100 & 100 \end{bmatrix}$
-
-## 8. Petroleum Engineering
-
-### Question 1: Block pressures
-
-$$\det T = 4, \qquad T^{-1} = \frac{1}{4}\begin{bmatrix} 3 & 2 & 1 \\ 2 & 4 & 2 \\ 1 & 2 & 3 \end{bmatrix}, \qquad \mathbf{p} = T^{-1}\begin{bmatrix} 1500 \\ 0 \\ 1200 \end{bmatrix} = \begin{bmatrix} 1425 \\ 1350 \\ 1275 \end{bmatrix}\ \text{psi}$$
-
-The pressure falls steadily from the high-pressure boundary block towards the lower one, as expected for steady 1-D flow.
-
-> **Answer.** $\mathbf{p} = (1425,\ 1350,\ 1275)$ psi
-
-### Question 2: Production-rate matrix
-
-$$\det P = 500(120\,000 - 10\,000) - 200(90\,000 - 20\,000) + 50(30\,000 - 80\,000) = 3.85 \times 10^{7}$$
-
-Since $\det P \ne 0$, each well's contribution can be recovered uniquely from the separator totals. If $\det P = 0$, at least one well's output would be a linear combination of the others. Infinitely many allocations would then fit the same totals, and the contributions could not be identified without extra measurements, such as individual well tests.
-
-> **Answer.** $\det P = 3.85 \times 10^{7} \ne 0$, so the allocation is unique.

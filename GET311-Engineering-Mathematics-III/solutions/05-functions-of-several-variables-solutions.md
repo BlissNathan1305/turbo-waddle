@@ -26,33 +26,7 @@ In the worst case the errors add: $0.5(2\%) + 0.8(3\%) = 3.4\%$.
 
 > **Answer.** The maximum error in $E$ is 3.4 %.
 
-## 2. Chemical Engineering
-
-### Question 1: Van der Waals partial derivatives
-
-Write $P = \dfrac{RT}{V - b} - \dfrac{a}{V^2}$. Then
-
-$$\left(\frac{\partial P}{\partial V}\right)_T = -\frac{RT}{(V - b)^2} + \frac{2a}{V^3}, \qquad \left(\frac{\partial P}{\partial T}\right)_V = \frac{R}{V - b}$$
-
-Treating $F(P, V, T) = 0$ implicitly, $\left(\dfrac{\partial V}{\partial T}\right)_P = -\dfrac{(\partial P/\partial T)_V}{(\partial P/\partial V)_T}$ and $\left(\dfrac{\partial T}{\partial P}\right)_V = \dfrac{1}{(\partial P/\partial T)_V}$. Multiplying the three:
-
-$$\left(\frac{\partial P}{\partial V}\right)_T\cdot\left(-\frac{(\partial P/\partial T)_V}{(\partial P/\partial V)_T}\right)\cdot\frac{1}{(\partial P/\partial T)_V} = -1 \qquad ∎$$
-
-> **Answer.** The two partial derivatives are given above, and their cyclic product is $-1$.
-
-### Question 2: Least surface area for a fixed volume
-
-Minimise $A = 2\pi r^2 + 2\pi rh$ subject to $\pi r^2 h = 10$. The Lagrange conditions are
-
-$$4\pi r + 2\pi h = \lambda\cdot 2\pi rh, \qquad 2\pi r = \lambda\pi r^2$$
-
-The second gives $\lambda = 2/r$; substituting into the first gives $4r + 2h = 4h$, so $h = 2r$ (the height equals the diameter). Then $2\pi r^3 = 10$, so
-
-$$r = \left(\frac{5}{\pi}\right)^{1/3} = 1.168\ \text{m}, \qquad h = 2.335\ \text{m}, \qquad A_{\min} = 25.7\ \text{m}^2$$
-
-> **Answer.** $r = 1.168$ m and $h = 2.335$ m (height = diameter).
-
-## 3. Computer Engineering
+## 2. Computer Engineering
 
 ### Question 1: Gradient descent
 
@@ -79,7 +53,7 @@ The gradient direction is $(-0.6, -0.8)$, pointing towards the bright centre. Ed
 
 > **Answer.** $\nabla I = (-7.28,\ -9.70)$; edge strength $12.13$; direction $(-0.6,\ -0.8)$.
 
-## 4. Civil Engineering
+## 3. Civil Engineering
 
 ### Question 1: Slope and drainage at (10, 20)
 
@@ -101,7 +75,7 @@ $$b = \frac{d}{\sqrt3} \approx 0.577d, \qquad h = d\sqrt{\frac23} \approx 0.816d
 
 > **Answer.** $b = d/\sqrt3$ and $h = d\sqrt{2/3}$ (so $h : b = \sqrt2 : 1$).
 
-## 5. Electrical and Electronics Engineering
+## 4. Electrical and Electronics Engineering
 
 ### Question 1: Error in dissipated power
 
@@ -125,7 +99,7 @@ At $(1, 2, 2)$, $r = 3$ and $V = k/3$.
 
 > **Answer.** $\nabla^2 V = 0$; the equipotential through $(1, 2, 2)$ is the sphere $x^2 + y^2 + z^2 = 9$.
 
-## 6. Food Engineering
+## 5. Food Engineering
 
 ### Question 1: Moisture during drying
 
@@ -149,7 +123,7 @@ The box is twice as tall as it is wide because its top and bottom cost more.
 
 > **Answer.** Base 11.45 cm × 11.45 cm; height 22.89 cm.
 
-## 7. Mechanical Engineering
+## 6. Mechanical Engineering
 
 ### Question 1: Path of fastest heating
 
@@ -168,25 +142,3 @@ $$\mathbf{r}_u = (\cos v,\ \sin v,\ 0), \qquad \mathbf{r}_v = (-u\sin v,\ u\cos 
 $$\mathbf{r}_u\times\mathbf{r}_v = \left(\tfrac12\sin v,\ -\tfrac12\cos v,\ u\right), \qquad \left\|\mathbf{r}_u\times\mathbf{r}_v\right\| = \sqrt{u^2 + \tfrac14}$$
 
 > **Answer.** $\mathbf{n} = \dfrac{\left(\tfrac12\sin v,\ -\tfrac12\cos v,\ u\right)}{\sqrt{u^2 + 1/4}}$ and $dS = \sqrt{u^2 + \tfrac14}\,du\,dv$.
-
-## 8. Petroleum Engineering
-
-### Question 1: The pressure field around the well
-
-Let $c = \dfrac{q\mu}{4\pi kh}$ and $r^2 = x^2 + y^2$. Then $p = p_e - c\ln(r^2/r_e^2)$, and
-
-$$\nabla p = -\frac{2c\,(x, y)}{r^2} = -\frac{q\mu}{2\pi kh}\,\frac{\hat{\mathbf{r}}}{r}$$
-
-This is purely radial, with magnitude falling off as $1/r$. So the flow along $-\nabla p$ is radial, and the Darcy velocity is $u = \dfrac{k}{\mu}\cdot\dfrac{q\mu}{2\pi kh\,r} = \dfrac{q}{2\pi rh}$.
-
-**Note on the sign.** With the formula exactly as written, $p$ *increases* towards the well, so $-\nabla p$ points **outward**: that describes an injector. For a **producing** well the pressure must be lowest at the well, $p = p_e + c\ln(r^2/r_e^2)$. Then $\nabla p$ points outward and the flow $-\nabla p$ points radially **inward**, towards the well ✓. Students should spot and correct the sign.
-
-> **Answer.** $\nabla p$ is radial with magnitude $\dfrac{q\mu}{2\pi kh\,r}$; with the corrected sign the flow is radially into the well.
-
-### Question 2: Linearising $B_o$
-
-$B_o$ is already linear in $p$ and $T$, so its first-order Taylor expansion about $(3000, 150)$ is the function itself. At (2800 psi, 160 °F):
-
-$$B_o = 1.2 + 0.0001(10) - 0.00002(-200) = 1.2 + 0.001 + 0.004 = 1.205$$
-
-> **Answer.** $B_o = 1.205$ rb/stb

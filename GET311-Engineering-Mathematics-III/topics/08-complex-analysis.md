@@ -26,37 +26,27 @@ Complex analysis is essential in control-system stability (Nyquist criterion), A
 1. Steady groundwater flow under a drainage field is modelled by the potential $\phi(x, y) = x^2 - y^2$. Check that $\phi$ is harmonic. Use the Cauchy–Riemann equations to find the stream function $\psi$ and the complex potential $w = \phi + i\psi$, and sketch the flow lines. Where is the stagnation point?
 2. The transfer function of a greenhouse temperature controller is $G(s) = \dfrac{10}{(s + 1)(s + 2)(s + 5)}$. Find its poles and zeros, and use the residue theorem to find the impulse response $g(t)$, the inverse Laplace transform, as $\dfrac{1}{2\pi i}\oint e^{st}G(s)\,ds$.
 
-### 2. Chemical Engineering
-
-1. Use the Cauchy–Riemann equations to show that $f(z) = \bar{z} = x - iy$ is *not* analytic anywhere, while $f(z) = e^{x}(\cos y + i\sin y)$ *is* analytic everywhere. Identify the second function as $e^z$. Explain why analyticity is needed when the concentration field in a thin 2-D film is modelled as the real part of an analytic function.
-2. The response of a first-order-plus-lag process is $C(s) = \dfrac{1}{s(\tau s + 1)^2}$. Classify its singularities, and use residues to find $c(t)$ for $\tau = 2$ min.
-
-### 3. Computer Engineering
+### 2. Computer Engineering
 
 1. A digital filter has transfer function $H(z) = \dfrac{z^2 - 1}{z^2 - 0.5z + 0.06}$. Find its zeros and poles, and state whether the filter is stable (all poles inside the unit circle). Write a program sketch that computes the poles and tests stability for any given denominator coefficients.
 2. The inverse z-transform is $x[n] = \dfrac{1}{2\pi i}\oint X(z)\,z^{n-1}\,dz$. Use the residue theorem to find $x[n]$ for $X(z) = \dfrac{z}{(z - 0.5)(z - 0.25)}$ in the region outside the circle of radius $0.5$.
 
-### 4. Civil Engineering
+### 3. Civil Engineering
 
 1. Seepage under a sheet pile is modelled by the complex potential $w = \cosh^{-1}(z/b)$. Rewrite it as $z = b\cosh w$, separate the real and imaginary parts, and show that the equipotential lines are ellipses and the streamlines are hyperbolae. Identify the branch points at $z = \pm b$.
 2. Evaluate the real integral $\displaystyle\int_{-\infty}^{\infty}\frac{dx}{(x^2 + 4)^2}$ by contour integration over a semicircle in the upper half-plane. The integral appears in the deflection of a beam on an elastic foundation under a distributed load.
 
-### 5. Electrical and Electronics Engineering
+### 4. Electrical and Electronics Engineering
 
 1. Find the bilinear transformation that maps $z = 0, 1, \infty$ to $w = -1, 0, 1$. Show that the normalised load-impedance plane ($\mathrm{Re}\, z \ge 0$) is mapped onto the unit disc, and explain how this gives the Smith chart reflection coefficient $\Gamma = \dfrac{z - 1}{z + 1}$.
 2. An RLC circuit has transfer function $H(s) = \dfrac{1}{s^2 + 2s + 5}$. Find its poles, and classify them as simple or of higher order. Use Cauchy's integral formula or residues to find the impulse response $h(t)$.
 
-### 6. Food Engineering
+### 5. Food Engineering
 
 1. The temperature in a long rectangular food slab in steady state is $T(x, y) = 20 + 5(x^3 - 3xy^2)$. Show that $T$ is harmonic, and find the harmonic conjugate that gives the heat-flow lines. Write the analytic function $f(z)$ whose real part is $T - 20$.
 2. Evaluate $\displaystyle\oint_C\frac{e^{2z}}{(z - 1)^3}\,dz$ where $C$ is the circle of radius 2 centred at the origin, using Cauchy's integral formula for derivatives. Such integrals arise in inverting Laplace-domain models of thermal processing with repeated time constants.
 
-### 7. Mechanical Engineering
+### 6. Mechanical Engineering
 
 1. The Joukowski transformation $w = z + \dfrac{1}{z}$ maps circles in the $z$-plane to aerofoil-like shapes. Find the singularities and the critical points (where $dw/dz = 0$) of the transformation, and show that the unit circle maps to the segment $[-2, 2]$ on the real axis.
 2. Evaluate $\displaystyle\int_0^{2\pi}\frac{d\theta}{5 + 4\cos\theta}$ by contour integration round the unit circle. This type of integral appears in the analysis of rotating machinery with eccentric loading.
-
-### 8. Petroleum Engineering
-
-1. A source (injector) at $z = -a$ and a sink (producer) at $z = a$ give the complex potential $w = \dfrac{q}{2\pi}\left[\log(z + a) - \log(z - a)\right]$. Find the singularities of $w$ and their type, and show that the equipotentials are circles (Apollonius circles). Find the stagnation points, if there are any.
-2. Find the bilinear transformation that maps the circle of radius $R$ centred at the origin (the reservoir boundary) to the unit circle, with an off-centre well at $z = z_0$ going to the centre $w = 0$. Explain how this lets the known solution for a centred well be used for an off-centre well.

@@ -25,33 +25,7 @@ $$V = \pi r^2 h + \tfrac13\pi r^2 h_c = \pi(9)(10) + \tfrac13\pi(9)(2) = 90\pi +
 
 > **Answer.** Wall $r = 3$; roof $z = 12 - \tfrac23 r$; volume $96\pi \approx 301.6$ m³.
 
-## 2. Chemical Engineering
-
-### Question 1: The spherical catalyst pellet
-
-A point on the surface is $(\rho, \theta, \phi) = (5\ \text{mm}, \theta, \phi)$ for any $0 \le \theta < 2\pi$ and $0 \le \phi \le \pi$, that is $x = 5\sin\phi\cos\theta$, $y = 5\sin\phi\sin\theta$, $z = 5\cos\phi$.
-
-If $C$ depends only on $\rho$, then $\partial C/\partial\theta = \partial C/\partial\phi = 0$ and the Laplacian reduces to
-
-$$\nabla^2 C = \frac{1}{\rho^2}\frac{d}{d\rho}\left(\rho^2\frac{dC}{d\rho}\right)$$
-
-So the 3-D diffusion–reaction PDE becomes **one ordinary differential equation in $\rho$**, where Cartesian coordinates would need all three variables together.
-
-> **Answer.** Surface: $\rho = 5$ mm. Spherical symmetry removes $\theta$ and $\phi$, leaving an ODE in $\rho$.
-
-### Question 2: The elliptical tank
-
-Complete the squares:
-
-$$9(x^2 - 4x) + 4(y^2 + 6y) + 36 = 0 \quad\Rightarrow\quad 9(x - 2)^2 + 4(y + 3)^2 = 36$$
-
-Translating with $X = x - 2$ and $Y = y + 3$ gives the standard form
-
-$$\frac{X^2}{4} + \frac{Y^2}{9} = 1$$
-
-> **Answer.** Centre $(2, -3)$; semi-axes $a = 2$ (along $x$) and $b = 3$ (along $y$); area $\pi ab = 6\pi \approx 18.85$.
-
-## 3. Computer Engineering
+## 2. Computer Engineering
 
 ### Question 1: Robot arm position
 
@@ -85,7 +59,7 @@ $$d = \frac{\left|12.25 + 12.25 + 10 - 10\right|}{\sqrt3} = \frac{24.49}{\sqrt3}
 
 > **Answer.** Point $(12.25,\ 12.25,\ 10)$ m; 10 m above the ground; 14.14 m from the plane.
 
-## 4. Civil Engineering
+## 3. Civil Engineering
 
 ### Question 1: The embankment plane
 
@@ -115,7 +89,7 @@ Expanded, this contains an $XY$ term. That is expected: in the rotated frame the
 
 > **Answer.** $y = 15 - x^2/60$; the rotated form is given above.
 
-## 5. Electrical and Electronics Engineering
+## 4. Electrical and Electronics Engineering
 
 ### Question 1: The dipole pattern surface
 
@@ -135,7 +109,7 @@ $$A = \int_0^{2\pi}\!\!\int_1^4 r\,dr\,d\theta = 2\pi\cdot\frac{16 - 1}{2} = 15\
 
 > **Answer.** $1 \le r \le 4$ mm; area $15\pi \approx 47.1$ mm².
 
-## 6. Food Engineering
+## 5. Food Engineering
 
 ### Question 1: Slowest-heating point in the can
 
@@ -157,7 +131,7 @@ On a sphere, heat conduction with uniform surface conditions depends only on the
 
 > **Answer.** $V = 16\pi \approx 50.3$ cm³; $X = x/2$, $Y = y/2$, $Z = z/3$ gives the unit sphere.
 
-## 7. Mechanical Engineering
+## 6. Mechanical Engineering
 
 ### Question 1: The cam profile
 
@@ -184,25 +158,3 @@ For the shortest distance, take $P_1 = (1, -1, 0)$ and $P_2 = (2, 1, -1)$, so $\
 $$d = \frac{\left|\overrightarrow{P_1P_2}\cdot\mathbf{n}\right|}{\left\|\mathbf{n}\right\|} = \frac{\left|30 + 12 + 13\right|}{33.24} = 1.65$$
 
 > **Answer.** Angle $42.7^\circ$; shortest distance 1.65 units.
-
-## 8. Petroleum Engineering
-
-### Question 1: The drainage volume
-
-The flow domain is $0.1 \le r \le 300$ m, $0 \le \theta < 2\pi$, $0 \le z \le 20$ m.
-
-$$V_{\text{bulk}} = \pi\left(300^2 - 0.1^2\right)(20) = 5.65\times 10^{6}\ \text{m}^3, \qquad V_{\text{pore}} = 0.25\,V_{\text{bulk}} = 1.41\times 10^{6}\ \text{m}^3$$
-
-> **Answer.** Bulk volume $5.65\times10^6$ m³; pore volume $1.41\times10^6$ m³.
-
-### Question 2: The directional well
-
-The path is $\mathbf{r}(s) = s\,(600, 800, -2500)$ for $0 \le s \le 1$, or $\dfrac{x}{600} = \dfrac{y}{800} = \dfrac{z}{-2500}$.
-
-$$L = \sqrt{600^2 + 800^2 + 2500^2} = 2692.6\ \text{m}, \qquad \text{inclination} = \tan^{-1}\frac{1000}{2500} = 21.8^\circ$$
-
-Taking $y$ as north and $x$ as east, the azimuth is $\tan^{-1}(600/800) = 36.9^\circ$ (N36.9°E). In spherical coordinates ($\phi$ measured from the positive $z$-axis):
-
-$$\rho = 2692.6\ \text{m}, \qquad \theta = \tan^{-1}\frac{800}{600} = 53.1^\circ, \qquad \phi = \cos^{-1}\frac{-2500}{2692.6} = 158.2^\circ$$
-
-> **Answer.** Length 2692.6 m; inclination $21.8^\circ$; azimuth N36.9°E; $(\rho, \theta, \phi) = (2692.6\ \text{m},\ 53.1^\circ,\ 158.2^\circ)$.

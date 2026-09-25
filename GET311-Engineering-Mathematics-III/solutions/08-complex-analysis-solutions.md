@@ -26,31 +26,7 @@ Check: $g(0) = 2.5 - 3.333 + 0.833 = 0$ ✓, as expected for a third-order syste
 
 > **Answer.** $g(t) = 2.5e^{-t} - \tfrac{10}{3}e^{-2t} + \tfrac56e^{-5t}$ for $t \ge 0$.
 
-## 2. Chemical Engineering
-
-### Question 1: Which functions are analytic
-
-For $f = \bar{z}$: $u = x$ and $v = -y$, so $u_x = 1$ but $v_y = -1$. The first Cauchy–Riemann equation fails at every point, so $\bar{z}$ is analytic nowhere.
-
-For $f = e^{x}(\cos y + i\sin y)$: $u = e^x\cos y$ and $v = e^x\sin y$, so
-
-$$u_x = e^x\cos y = v_y, \qquad u_y = -e^x\sin y = -v_x$$
-
-The partial derivatives are continuous, so $f$ is analytic everywhere, and $e^{x + iy} = e^xe^{iy}$ shows that $f = e^z$.
-
-If the concentration is $c = \mathrm{Re}\, f(z)$ with $f$ analytic, then $c$ automatically satisfies Laplace's equation (steady diffusion without reaction), and the iso-concentration lines and flux lines ($\mathrm{Im}\, f$) are orthogonal. Without analyticity none of this holds.
-
-> **Answer.** $\bar{z}$ is nowhere analytic; $e^x(\cos y + i\sin y) = e^z$ is analytic everywhere.
-
-### Question 2: Step response of the process
-
-$C(s) = \dfrac{1}{s(2s + 1)^2} = \dfrac{1/4}{s\left(s + \tfrac12\right)^2}$ has a simple pole at $s = 0$, a double pole at $s = -\tfrac12$, and no zeros.
-
-$$\operatorname*{Res}_{s=0} = \frac{1}{4\left(\tfrac12\right)^2} = 1, \qquad \operatorname*{Res}_{s=-1/2} = \frac{d}{ds}\left[\frac{e^{st}}{4s}\right]_{s=-1/2} = -\frac{t}{2}e^{-t/2} - e^{-t/2}$$
-
-> **Answer.** $c(t) = 1 - \left(1 + \tfrac{t}{2}\right)e^{-t/2}$ ($t$ in minutes).
-
-## 3. Computer Engineering
+## 2. Computer Engineering
 
 ### Question 1: Filter stability
 
@@ -73,7 +49,7 @@ $$\operatorname*{Res}_{z=1/2} = \frac{(1/2)^n}{1/2 - 1/4} = 4\left(\tfrac12\righ
 
 > **Answer.** $x[n] = 4\left[\left(\tfrac12\right)^n - \left(\tfrac14\right)^n\right]$ for $n \ge 0$, that is $0,\ 1,\ 0.75,\ 0.4375, \dots$
 
-## 4. Civil Engineering
+## 3. Civil Engineering
 
 ### Question 1: Seepage under the sheet pile
 
@@ -105,7 +81,7 @@ $$\int_{-\infty}^{\infty}\frac{dx}{(x^2 + 4)^2} = 2\pi i\cdot\frac{1}{32i} = \fr
 
 > **Answer.** $\pi/16 \approx 0.196$
 
-## 5. Electrical and Electronics Engineering
+## 4. Electrical and Electronics Engineering
 
 ### Question 1: The Smith chart mapping
 
@@ -127,7 +103,7 @@ This is an underdamped response, and it is stable because the poles are in the l
 
 > **Answer.** $h(t) = \tfrac12 e^{-t}\sin 2t$
 
-## 6. Food Engineering
+## 5. Food Engineering
 
 ### Question 1: Steady slab temperature
 
@@ -149,7 +125,7 @@ $$\oint_C\frac{e^{2z}}{(z - 1)^3}\,dz = \frac{2\pi i}{2!}\cdot4e^{2} = 4\pi e^2\
 
 > **Answer.** $4\pi e^2 i \approx 92.9i$
 
-## 7. Mechanical Engineering
+## 6. Mechanical Engineering
 
 ### Question 1: The Joukowski transformation
 
@@ -174,27 +150,3 @@ $$\int_0^{2\pi}\frac{d\theta}{5 + 4\cos\theta} = \oint_{\left|z\right| = 1}\frac
 Only $z = -\tfrac12$ is inside the circle, with residue $\dfrac{1}{2i\cdot\tfrac32} = \dfrac{1}{3i}$. So the integral is $2\pi i\cdot\dfrac{1}{3i} = \dfrac{2\pi}{3}$.
 
 > **Answer.** $2\pi/3 \approx 2.094$
-
-## 8. Petroleum Engineering
-
-### Question 1: Injector–producer pair
-
-$w$ has **logarithmic branch points** at $z = -a$ (source) and $z = a$ (sink). These are not poles, because log is multivalued. The complex velocity
-
-$$\frac{dw}{dz} = \frac{q}{2\pi}\left[\frac{1}{z + a} - \frac{1}{z - a}\right] = \frac{q}{2\pi}\cdot\frac{-2a}{z^2 - a^2}$$
-
-has simple poles at $\pm a$. The equipotentials are $\phi = \dfrac{q}{2\pi}\ln\dfrac{\left|z + a\right|}{\left|z - a\right|} = \text{const}$, that is $\dfrac{\left|z + a\right|}{\left|z - a\right|} = k$: the **Apollonius circles**, which have $\pm a$ as inverse points. $dw/dz$ is never zero for finite $z$, so there are no stagnation points. All the fluid injected at $-a$ goes to the producer at $a$.
-
-> **Answer.** Logarithmic branch points at $\pm a$; equipotentials are Apollonius circles; no stagnation points.
-
-### Question 2: Mapping the off-centre well to the centre
-
-$$w = \frac{R(z - z_0)}{R^2 - \bar{z}_0 z}$$
-
-- At $z = z_0$, $w = 0$ ✓.
-- On $\left|z\right| = R$, $z\bar{z} = R^2$, so $\left|R^2 - \bar{z}_0z\right| = \left|z\right|\left|\bar{z} - \bar{z}_0\right| = R\left|z - z_0\right|$, hence $\left|w\right| = 1$ ✓.
-- $z = 0$ maps to $-z_0/R$, which is inside the unit disc, so the inside maps to the inside.
-
-The pressure for a *centred* well in a circular reservoir is known: $p = p_w + \dfrac{q\mu}{2\pi kh}\ln\dfrac{r}{r_w}$. Because the map is conformal, Laplace's equation is preserved. Taking that solution in the $w$-plane and substituting $w(z)$ gives the pressure field of the off-centre well directly, and also its effective shape factor for productivity calculations.
-
-> **Answer.** $w = \dfrac{R(z - z_0)}{R^2 - \bar{z}_0z}$

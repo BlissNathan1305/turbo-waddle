@@ -24,23 +24,7 @@ Check: $\nabla^2\phi = 0$, so this is a valid potential flow.
 
 > **Answer.** Incompressible and irrotational, with $\phi = (-x^2 - y^2 + 2z^2)\times10^{-6}$.
 
-## 2. Chemical Engineering
-
-### Question 1: Catalyst mass
-
-$$m = \int_0^2\!\!\int_0^{2\pi}\!\!\int_0^{0.5} 800(1 - 0.3r^2)\,r\,dr\,d\theta\,dz = 3200\pi\left[\frac{r^2}{2} - 0.075r^4\right]_0^{0.5} = 3200\pi(0.125 - 0.00469) = 1209.5\ \text{kg}$$
-
-> **Answer.** $m = 1209.5$ kg
-
-### Question 2: Poiseuille flow rate
-
-$$Q = \iint \mathbf{v}\cdot\mathbf{k}\,dA = \int_0^{2\pi}\!\!\int_0^R v_{\max}\left(1 - \frac{r^2}{R^2}\right)r\,dr\,d\theta = 2\pi v_{\max}\left[\frac{R^2}{2} - \frac{R^2}{4}\right] = \frac{\pi R^2 v_{\max}}{2}$$
-
-The mean velocity is $\bar{v} = Q/(\pi R^2) = v_{\max}/2$. ∎
-
-> **Answer.** $Q = \pi R^2 v_{\max}/2$ and $\bar{v} = v_{\max}/2$.
-
-## 3. Computer Engineering
+## 2. Computer Engineering
 
 ### Question 1: The drone's helical path
 
@@ -79,7 +63,7 @@ The integrand is linear in each variable separately, so the midpoint rule gives 
 
 > **Answer.** $Q = 22$ W
 
-## 4. Civil Engineering
+## 3. Civil Engineering
 
 ### Question 1: Centroid and second moment of the T-section
 
@@ -105,7 +89,7 @@ $$\phi = x^2y + yz, \qquad W = \phi(1, 2, 3) - \phi(0, 0, 0) = 2 + 6 = 8 \quad �
 
 > **Answer.** $W = 8$ kJ on both paths; $\mathbf{F}$ is conservative with $\phi = x^2y + yz$.
 
-## 5. Electrical and Electronics Engineering
+## 4. Electrical and Electronics Engineering
 
 ### Question 1: Flux through the cylinder
 
@@ -127,7 +111,7 @@ The field is irrotational everywhere except on the wire, yet the circulation aro
 
 > **Answer.** $\oint\mathbf{B}\cdot d\mathbf{r} = \mu_0 I$ (Ampère's law), and $\nabla\times\mathbf{B} = \mathbf{0}$ off the wire.
 
-## 6. Food Engineering
+## 5. Food Engineering
 
 ### Question 1: Average temperature in the dome cake
 
@@ -147,7 +131,7 @@ The moisture removal rate is $1.125\times0.012 = 0.0135$ kg/s ≈ 48.6 kg/h.
 
 > **Answer.** $Q = 1.125$ m³/s; moisture removal 0.0135 kg/s (48.6 kg/h).
 
-## 7. Mechanical Engineering
+## 6. Mechanical Engineering
 
 ### Question 1: Moment of inertia of a solid cone
 
@@ -172,26 +156,3 @@ $$\oint\mathbf{v}\cdot d\mathbf{r} = \int_0^{2\pi}\left[(\sin t)(-\sin t) + (-\c
 This agrees with Stokes' theorem: $(-2)(\pi\cdot1^2) = -2\pi$.
 
 > **Answer.** $\nabla\cdot\mathbf{v} = 0$, $\nabla\times\mathbf{v} = (0, 0, -2)$; circulation $-2\pi$.
-
-## 8. Petroleum Engineering
-
-### Question 1: Bulk volume and oil in place
-
-The thickness at radius $r$ is $0.001r^2$, so
-
-$$V_{\text{bulk}} = \int_0^{2\pi}\!\!\int_0^{500} 0.001r^2\cdot r\,dr\,d\theta = 0.001\cdot2\pi\cdot\frac{500^4}{4} = 9.82\times10^{7}\ \text{m}^3$$
-
-$$\text{OIP} = \phi\,S_o\,V_{\text{bulk}} = 0.2\times0.75\times9.82\times10^{7} = 1.47\times10^{7}\ \text{m}^3$$
-
-> **Answer.** Bulk volume $9.82\times10^7$ m³; oil in place $1.47\times10^7$ m³ (about 92.6 million barrels).
-
-### Question 2: Darcy flux across the square
-
-$\nabla p = (-x,\ -0.6y)$, so $\mathbf{u} = -0.01\nabla p = (0.01x,\ 0.006y)$. On each side of the square (length 200 m):
-
-- $x = \pm100$: $\mathbf{u}\cdot\mathbf{n} = 1$, giving $1\times200 = 200$ per side.
-- $y = \pm100$: $\mathbf{u}\cdot\mathbf{n} = 0.6$, giving $0.6\times200 = 120$ per side.
-
-The net outward flux is $2(200) + 2(120) = 640$. Check with the divergence theorem: $\nabla\cdot\mathbf{u} = 0.016$, and $0.016\times200^2 = 640$ ✓. The positive value means this pressure field implies a net source, such as injection, inside the square.
-
-> **Answer.** $\mathbf{u} = (0.01x,\ 0.006y)$; net outward flux 640 (m² per unit time, per unit thickness).

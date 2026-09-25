@@ -41,9 +41,9 @@ TITLE_PAGE = raw(
     + '<w:p><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="2E74B5"/></w:pBdr>'
       '<w:spacing w:after="360"/><w:ind w:left="2800" w:right="2800"/><w:jc w:val="center"/></w:pPr></w:p>'
     + para('Worked Solutions', 36, '2E74B5', after=120)
-    + para('Application questions for the eight engineering departments', 24, '595959', after=2400)
+    + para('Application questions for the six engineering departments', 24, '595959', after=2400)
     + para('3 Units  ·  Compulsory  ·  LH 45', 22, '595959', after=60)
-    + para('128 questions  ·  8 topics  ·  8 departments', 22, '595959', after=0)
+    + para('96 questions  ·  8 topics  ·  6 departments', 22, '595959', after=0)
 ) + PAGE_BREAK
 
 TOC = raw(
@@ -57,7 +57,7 @@ TOC = raw(
 
 ABOUT = """# How to Use These Solutions
 
-Each solution sits under the question it answers, in the same order as the question set: eight topics, and within each topic the eight departments with two questions each.
+Each solution sits under the question it answers, in the same order as the question set: eight topics, and within each topic the six departments with two questions each.
 
 ::: {custom-style="Question Box"}
 **Question.** The question is repeated in a blue box like this one.

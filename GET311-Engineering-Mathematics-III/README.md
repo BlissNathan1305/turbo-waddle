@@ -5,15 +5,15 @@
 This folder holds a study companion for GET 311. For each topic in the course outline it gives:
 
 - a **short introduction** to the topic, and
-- **two application questions for each of the eight engineering departments** that take the course (16 questions per topic, 128 in total).
+- **two application questions for each of the six engineering departments** that take the course (12 questions per topic, 96 in total).
 
 ## Student Workbook
 
-A print-ready student workbook is included as [GET311-Student-Workbook.pdf](GET311-Student-Workbook.pdf) and as an editable Word file, [GET311-Student-Workbook.docx](GET311-Student-Workbook.docx). It has a cover page, a progress tracker, a colour-coded section for each topic with its key ideas, all 128 questions with ruled space for working, and a review page at the end of each topic (83 A4 pages).
+A print-ready student workbook is included as [GET311-Student-Workbook.pdf](GET311-Student-Workbook.pdf) and as an editable Word file, [GET311-Student-Workbook.docx](GET311-Student-Workbook.docx). It has a cover page, a progress tracker, a colour-coded section for each topic with its key ideas, all 96 questions with ruled space for working, and a review page at the end of each topic (67 A4 pages).
 
 ## Worked Solutions
 
-Worked solutions to all 128 questions are in the [`solutions/`](solutions/) folder, one file per topic. They are also available as a PDF, [GET311-Engineering-Mathematics-III-Solutions.pdf](GET311-Engineering-Mathematics-III-Solutions.pdf), and as a Word document, [GET311-Engineering-Mathematics-III-Solutions.docx](GET311-Engineering-Mathematics-III-Solutions.docx). It shows each question in a blue box above its solution and ends each solution with a green answer box. Every equation is a native Word equation, so it can be edited with Word's built-in equation editor.
+Worked solutions to all 96 questions are in the [`solutions/`](solutions/) folder, one file per topic. They are also available as a PDF, [GET311-Engineering-Mathematics-III-Solutions.pdf](GET311-Engineering-Mathematics-III-Solutions.pdf), and as a Word document, [GET311-Engineering-Mathematics-III-Solutions.docx](GET311-Engineering-Mathematics-III-Solutions.docx). It shows each question in a blue box above its solution and ends each solution with a green answer box. Every equation is a native Word equation, so it can be edited with Word's built-in equation editor.
 
 The Markdown files write their mathematics in LaTeX (`$...$` and `$$...$$`), which GitHub renders as equations. To rebuild the Word document after editing them, install pandoc (for example `pip install pypandoc_binary`) and run:
 
@@ -51,13 +51,11 @@ By the end of the course, students should be able to:
 ## Applied Departments
 
 1. Agricultural Engineering
-2. Chemical Engineering
-3. Computer Engineering
-4. Civil Engineering
-5. Electrical and Electronics Engineering
-6. Food Engineering
-7. Mechanical Engineering
-8. Petroleum Engineering
+2. Computer Engineering
+3. Civil Engineering
+4. Electrical and Electronics Engineering
+5. Food Engineering
+6. Mechanical Engineering
 
 ## How to Use This Material
 

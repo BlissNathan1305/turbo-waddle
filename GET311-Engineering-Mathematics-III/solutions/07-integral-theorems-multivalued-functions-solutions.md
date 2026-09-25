@@ -24,37 +24,7 @@ $$\iiint_V (2x + 2y + 2z)\,dV = 1 + 1 + 1 = 3$$
 
 > **Answer.** Both integrals equal 3.
 
-## 2. Chemical Engineering
-
-### Question 1: Deriving the continuity equation
-
-The mass balance on a fixed control volume $V$ says the rate of increase of mass equals the net inflow:
-
-$$\frac{d}{dt}\iiint_V \rho\,dV = -\oiint_S \rho\mathbf{v}\cdot\mathbf{n}\,dS$$
-
-By the divergence theorem, $\oiint_S \rho\mathbf{v}\cdot\mathbf{n}\,dS = \iiint_V \nabla\cdot(\rho\mathbf{v})\,dV$. Since $V$ is fixed,
-
-$$\iiint_V\left[\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{v})\right]dV = 0$$
-
-This holds for *every* $V$, so the integrand must be zero everywhere. ∎
-
-> **Answer.** $\dfrac{\partial\rho}{\partial t} + \nabla\cdot(\rho\mathbf{v}) = 0$
-
-### Question 2: Values of $z^{2/3}$ at $8i$
-
-$z = 8i = 8e^{i(\pi/2 + 2k\pi)}$, so
-
-$$w = 8^{2/3}e^{i\frac23\left(\frac{\pi}{2} + 2k\pi\right)} = 4e^{i\left(\frac{\pi}{3} + \frac{4k\pi}{3}\right)}$$
-
-- $k = 0$: $4e^{i\pi/3} = 2 + 2\sqrt3\,i$ (the principal value)
-- $k = 1$: $4e^{i5\pi/3} = 2 - 2\sqrt3\,i$
-- $k = 2$: $4e^{i3\pi} = -4$
-
-The branch point is $z = 0$ (and $z = \infty$). For a channel in the upper half-plane, place the branch cut along the **negative imaginary axis**, taking $-\pi/2 < \arg z < 3\pi/2$. The whole flow region then has no cut in it, and $w$ is single-valued and continuous there.
-
-> **Answer.** $w = 2 + 2\sqrt3\,i$ (principal), $2 - 2\sqrt3\,i$ and $-4$; branch point $z = 0$; cut along the negative imaginary axis.
-
-## 3. Computer Engineering
+## 2. Computer Engineering
 
 ### Question 1: The shoelace formula
 
@@ -91,7 +61,7 @@ for i = 1..n-1:
 
 > **Answer.** atan2 jumps by $2\pi$ at the negative real axis; unwrapping adds back multiples of $2\pi$.
 
-## 4. Civil Engineering
+## 3. Civil Engineering
 
 ### Question 1: Area and centroid of the slab section
 
@@ -113,7 +83,7 @@ The field is consistent with an incompressible soil and no sources or sinks. By 
 
 > **Answer.** $\nabla\cdot\mathbf{q} = 0$; the net outflow is zero.
 
-## 5. Electrical and Electronics Engineering
+## 4. Electrical and Electronics Engineering
 
 ### Question 1: Ampère's law in differential form
 
@@ -143,7 +113,7 @@ The principal branch gives phase angles only in the range $-180^\circ < \theta \
 
 > **Answer.** $\log z = \ln 2 + i(2\pi/3 + 2k\pi)$; principal value $0.693 + 2.094i$.
 
-## 6. Food Engineering
+## 5. Food Engineering
 
 ### Question 1: Heat balance for the can
 
@@ -165,7 +135,7 @@ Direct check: with $\mathbf{r} = (0.15\cos t,\ 0.15\sin t,\ 0.1)$, $\mathbf{v}\c
 
 > **Answer.** Circulation $0.045\pi \approx 0.141$ m²/s.
 
-## 7. Mechanical Engineering
+## 6. Mechanical Engineering
 
 ### Question 1: Work round the triangle
 
@@ -192,27 +162,3 @@ $$\frac{dw}{dz} = \frac23 z^{-1/3}, \qquad \left|\frac{dw}{dz}\right| = \frac23\
 The flow cannot turn a sharp convex corner smoothly, so the velocity becomes infinite there. In a real fluid, viscosity produces **flow separation** at such corners.
 
 > **Answer.** Branch point $z = 0$; other values $-\tfrac12 \mp \tfrac{\sqrt3}{2}i$; $\left|dw/dz\right| \propto \left|z\right|^{-1/3}$ is unbounded at the corner.
-
-## 8. Petroleum Engineering
-
-### Question 1: Flux with and without a well
-
-With no wells, $\nabla\cdot\mathbf{u} = 0$ everywhere in $V$, so by the divergence theorem
-
-$$\oiint_S\mathbf{u}\cdot\mathbf{n}\,dS = \iiint_V\nabla\cdot\mathbf{u}\,dV = 0$$
-
-With a producing well of rate $q$ inside $V$, the well is a point (or line) sink, $\nabla\cdot\mathbf{u} = -q\,\delta(\mathbf{r} - \mathbf{r}_w)$, and
-
-$$\oiint_S\mathbf{u}\cdot\mathbf{n}\,dS = -q$$
-
-The net *inflow* through any closed surface around the well equals the production rate $q$, whatever the shape of the surface. This is the basis of the well boundary condition $2\pi r h\,u_r = -q$ at $r = r_w$.
-
-> **Answer.** Zero net flux without wells; $\oiint\mathbf{u}\cdot\mathbf{n}\,dS = -q$ around a producer.
-
-### Question 2: The multivalued stream function
-
-$w = \dfrac{q}{2\pi}(\ln r + i\theta)$, so $\psi = \mathrm{Im}\, w = \dfrac{q}{2\pi}\theta$. Since $\theta$ increases by $2\pi$ on each circuit, $\psi$ increases by $q$ each time round the well: $\psi$ is multivalued, with its branch point at the well.
-
-The difference in $\psi$ between two streamlines equals the volumetric flow between them. A jump of exactly $q$ on going once round means the total flow crossing any closed curve around the well equals the well's production rate $q$ (per unit thickness).
-
-> **Answer.** $\psi = q\theta/(2\pi)$ jumps by $q$ per circuit, which is the production rate.
