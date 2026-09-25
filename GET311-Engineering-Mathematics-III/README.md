@@ -11,6 +11,10 @@ This folder holds a study companion for GET 311. For each topic in the course ou
 
 A print-ready student workbook is included as [GET311-Student-Workbook.pdf](GET311-Student-Workbook.pdf) and as an editable Word file, [GET311-Student-Workbook.docx](GET311-Student-Workbook.docx). It has a cover page, a progress tracker, a colour-coded section for each topic with its key ideas, all 128 questions with ruled space for working, and a review page at the end of each topic (83 A4 pages).
 
+## Worked Solutions
+
+Worked solutions to all 128 questions are in the [`solutions/`](solutions/) folder, one file per topic. They are also available as a Word document, [GET311-Engineering-Mathematics-III-Solutions.docx](GET311-Engineering-Mathematics-III-Solutions.docx), which shows each question above its solution.
+
 ## Learning Outcomes
 
 By the end of the course, students should be able to:
