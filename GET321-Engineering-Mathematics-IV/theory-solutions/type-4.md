@@ -59,11 +59,11 @@ So $v'' = \sin 2x$, $v = -\tfrac14\sin 2x$ and $y_3 = -\tfrac14 e^{-2x}\sin 2x$.
 ### (b) Derivatives from tabulated data
 
 ::: {custom-style="Question Box"}
-**Question 3(b).** Given a polynomial with the following data points, determine $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ at $x = 1.1$ and $x = 1.5$. *(6 marks)*
+**Question 3(b).** Given the following data points, determine $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ at $x = 1.1$ and $x = 1.5$. *(6 marks)*
 
 | $x$ | 1.0 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 |
 |---|---|---|---|---|---|---|---|
-| $f(x)$ | 7.991 | 8.403 | 8.781 | 9.129 | 9.451 | 9.750 | 10.631 |
+| $f(x)$ | 7.989 | 8.403 | 8.781 | 9.129 | 9.451 | 9.750 | 10.031 |
 :::
 
 !include numdiff-table
@@ -82,7 +82,7 @@ Dividing by the non-zero constant 4 leaves $y'' + y = 0$.
 ### (b) Bessel's equation
 
 ::: {custom-style="Question Box"}
-**Question 4(b).** Find the general solutions in terms of $J_\nu(x)$ and $J_{-\nu}(x)$ of the following Bessel function equation: $\ xy'' + y' + \left(\dfrac{4}{8}\right)y = 0$. *(6 marks)*
+**Question 4(b).** Find the general solution, in terms of Bessel functions, of the equation $\ xy'' + y' + \left(\dfrac{4}{8}\right)y = 0$. *(6 marks)*
 :::
 
 !include bessel

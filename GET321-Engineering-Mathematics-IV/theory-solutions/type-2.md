@@ -49,7 +49,7 @@ $$y_3 = \frac{e^x}{37}\left(6\sin 2x - \cos 2x\right)$$
 ### (b) Damped spring–mass system
 
 ::: {custom-style="Question Box"}
-**Question 2(b).** A spring with a 2000-g mass has a natural length 0.5 m, and a 25.6-newton force is required to maintain it stretched to a length of 0.7 m. If the spring is immersed in a fluid with damping constant $\beta = 40$, and stretched to a length of 0.7 m and then released from the equilibrium position with initial velocity 0.6 m/s: (i) characterize the damped spring–mass system with reason(s); (ii) find the position of the mass at any time $t$. *(6 marks)*
+**Question 2(b).** A spring with a 2000-g mass has a natural length 0.5 m, and a 25.6-newton force is required to maintain it stretched to a length of 0.7 m. If the spring is immersed in a fluid with damping constant $\beta = 40$ and the mass is released from the equilibrium position with initial velocity 0.6 m/s: (i) characterize the damped spring–mass system with reason(s); (ii) find the position of the mass at any time $t$. *(6 marks)*
 :::
 
 **Data.** $m = 2$ kg. From Hooke's law, $k(0.7 - 0.5) = 25.6$, so $k = 128$ N/m. The damping constant is $\beta = 40$.
@@ -72,17 +72,11 @@ so the system is **overdamped**: the damping is strong enough that the mass does
 
 $$x(t) = c_1e^{-4t} + c_2e^{-16t}$$
 
-The question says both "stretched to 0.7 m" and "released from the equilibrium position". We follow the second phrase, which matches the standard form of this problem: the mass starts at equilibrium and is given a push, so $x(0) = 0$ and $x'(0) = 0.6$.
+The mass starts at equilibrium with velocity 0.6 m/s, so $x(0) = 0$ and $x'(0) = 0.6$.
 
 $$c_1 + c_2 = 0, \qquad -4c_1 - 16c_2 = 0.6 \quad\Rightarrow\quad 12c_1 = 0.6, \ c_1 = 0.05, \ c_2 = -0.05$$
 
 > **Answer.** (i) Overdamped, because $\beta^2 - 4mk = 576 > 0$ (real roots $-4$ and $-16$, no oscillation). (ii) $x(t) = 0.05\left(e^{-4t} - e^{-16t}\right)$ m.
-
-**If the mass starts from the stretched position.** Taking $x(0) = 0.2$ m with $x'(0) = 0.6$ m/s instead gives $c_1 + c_2 = 0.2$ and $-4c_1 - 16c_2 = 0.6$, so $c_1 = \tfrac{19}{60}$, $c_2 = -\tfrac{7}{60}$ and
-
-$$x(t) = \frac{1}{60}\left(19e^{-4t} - 7e^{-16t}\right) \text{ m}$$
-
-The system is overdamped either way.
 
 ## Question 3: RLC Circuit
 
@@ -157,7 +151,7 @@ Since $2^k x^{2k} = (\sqrt2 x)^{2k}$, the first series is $\cos\sqrt2 x$ and the
 ### (b) Bessel's equation
 
 ::: {custom-style="Question Box"}
-**Question 4(b).** Find the general solutions in terms of $J_\nu(x)$ and $J_{-\nu}(x)$ of the following Bessel function equation: $\ xy'' + y' + \left(\dfrac{2}{4}\right)y = 0$. *(6 marks)*
+**Question 4(b).** Find the general solution, in terms of Bessel functions, of the equation $\ xy'' + y' + \left(\dfrac{2}{4}\right)y = 0$. *(6 marks)*
 :::
 
 !include bessel
@@ -221,11 +215,11 @@ Find the principal directions, that is, the directions of the position vector $x
 ### (b) Derivatives from tabulated data
 
 ::: {custom-style="Question Box"}
-**Question 6(b).** Given a polynomial with the following data points, determine $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ at $x = 1.1$ and $x = 1.5$. *(6 marks)*
+**Question 6(b).** Given the following data points, determine $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ at $x = 1.1$ and $x = 1.5$. *(6 marks)*
 
 | $x$ | 1.0 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 |
 |---|---|---|---|---|---|---|---|
-| $f(x)$ | 7.991 | 8.403 | 8.781 | 9.129 | 9.451 | 9.750 | 10.631 |
+| $f(x)$ | 7.989 | 8.403 | 8.781 | 9.129 | 9.451 | 9.750 | 10.031 |
 :::
 
 !include numdiff-table

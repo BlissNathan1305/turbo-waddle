@@ -1,4 +1,4 @@
-"""Build GET321-Theory-Solutions.docx (Questions 2-7, Types 1-5) with native Word equations.
+"""Build GET321-Theory-Marking-Scheme.docx (Questions 2-7, Types 1-5) with native Word equations.
 
 Usage: python3 build/build_solutions.py [output.docx]
 
@@ -12,7 +12,7 @@ import os, re, shutil, subprocess, sys, tempfile, zipfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC_DIR = os.path.join(ROOT, 'theory-solutions')
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'GET321-Theory-Solutions.docx')
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'GET321-Theory-Marking-Scheme.docx')
 
 
 def pandoc_path():
@@ -38,14 +38,14 @@ def para(text, size, color, bold=False, before=0, after=120):
 
 
 TITLE_PAGE = raw(
-    para('GET 321', 80, '1F3864', bold=True, before=3200, after=0)
-    + para('Engineering Mathematics IV', 48, '1F3864', bold=True, after=360)
-    + '<w:p><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="2E74B5"/></w:pBdr>'
+    para('GET 321', 80, '000000', bold=True, before=3200, after=0)
+    + para('Engineering Mathematics IV', 48, '000000', bold=True, after=360)
+    + '<w:p><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="12" w:space="1" w:color="000000"/></w:pBdr>'
       '<w:spacing w:after="360"/><w:ind w:left="2800" w:right="2800"/><w:jc w:val="center"/></w:pPr></w:p>'
-    + para('Worked Solutions to the Theory Questions', 36, '2E74B5', after=120)
-    + para('Questions 2 to 7  ·  Types 1 to 5', 28, '2E74B5', after=2400)
-    + para('2024/2025 &amp; 2025/2026 Second Semester B. Eng. Examination', 22, '595959', after=60)
-    + para('September 2026', 22, '595959', after=0)
+    + para('Marking Scheme for the Theory Questions', 36, '000000', after=120)
+    + para('Questions 2 to 7  ·  Types 1 to 5', 28, '000000', after=2400)
+    + para('2024/2025 &amp; 2025/2026 Second Semester B. Eng. Examination', 22, '000000', after=60)
+    + para('September 2026', 22, '000000', after=0)
 ) + PAGE_BREAK
 
 TOC = raw(
@@ -53,7 +53,7 @@ TOC = raw(
     '<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r>'
     '<w:r><w:instrText xml:space="preserve"> TOC \\o "1-2" \\h \\z \\u </w:instrText></w:r>'
     '<w:r><w:fldChar w:fldCharType="separate"/></w:r>'
-    '<w:r><w:rPr><w:color w:val="7F7F7F"/></w:rPr><w:t>Right-click here and choose Update Field to show the table of contents.</w:t></w:r>'
+    '<w:r><w:rPr><w:color w:val="000000"/></w:rPr><w:t>Right-click here and choose Update Field to show the table of contents.</w:t></w:r>'
     '<w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>'
 ) + PAGE_BREAK
 
@@ -78,7 +78,7 @@ def expand(name):
 
 
 def solutions_markdown():
-    parts = [TITLE_PAGE, TOC, open(os.path.join(SRC_DIR, 'about.md'), encoding='utf-8').read()]
+    parts = [TITLE_PAGE, TOC]
     for i in range(1, 6):
         name = f'type-{i}.md'
         text = expand(name)
@@ -86,7 +86,7 @@ def solutions_markdown():
         found = re.findall(r'^## Question (\d):', text, re.M)
         if found != [str(n) for n in range(2, 8)]:
             sys.exit(f'{name}: expected Questions 2-7, found {found}')
-        parts += [PAGE_BREAK, text]
+        parts += [text if i == 1 else PAGE_BREAK + text]
     return '\n'.join(parts)
 
 
@@ -116,7 +116,7 @@ def main():
     with open(src, 'w', encoding='utf-8') as f:
         f.write(solutions_markdown())
     run = subprocess.run([pandoc, src, '-f', 'markdown-auto_identifiers', '-o', OUT, '--reference-doc', ref,
-                          '--metadata', 'title-meta=GET 321 Theory Solutions', '--metadata', 'lang=en-GB'],
+                          '--metadata', 'title-meta=GET 321 Theory Marking Scheme', '--metadata', 'lang=en-GB'],
                          capture_output=True, text=True)
     if run.returncode or 'WARNING' in run.stderr:
         sys.exit(run.stderr or f'pandoc failed ({run.returncode})')

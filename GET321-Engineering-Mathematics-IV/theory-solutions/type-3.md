@@ -17,11 +17,11 @@
 ### (b) Derivatives from tabulated data
 
 ::: {custom-style="Question Box"}
-**Question 2(b).** Given a polynomial with the following data points, determine $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ at $x = 1.1$ and $x = 1.5$. *(6 marks)*
+**Question 2(b).** Given the following data points, determine $\dfrac{dy}{dx}$ and $\dfrac{d^2y}{dx^2}$ at $x = 1.1$ and $x = 1.5$. *(6 marks)*
 
 | $x$ | 1.0 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 |
 |---|---|---|---|---|---|---|---|
-| $f(x)$ | 7.991 | 8.403 | 8.781 | 9.129 | 9.451 | 9.750 | 10.631 |
+| $f(x)$ | 7.989 | 8.403 | 8.781 | 9.129 | 9.451 | 9.750 | 10.031 |
 :::
 
 !include numdiff-table
@@ -48,7 +48,7 @@ Dividing by the non-zero constant 3 leaves $y'' + y = 0$.
 ### (b) Bessel's equation
 
 ::: {custom-style="Question Box"}
-**Question 4(b).** Find the general solutions in terms of $J_\nu(x)$ and $J_{-\nu}(x)$ of the following Bessel function equation: $\ xy'' + y' + \left(\dfrac{3}{6}\right)y = 0$. *(6 marks)*
+**Question 4(b).** Find the general solution, in terms of Bessel functions, of the equation $\ xy'' + y' + \left(\dfrac{3}{6}\right)y = 0$. *(6 marks)*
 :::
 
 !include bessel
@@ -110,7 +110,7 @@ $\lambda = 15$: $\ \begin{bmatrix} -7 & -6 & 2 \\ -6 & -8 & -4 \\ 2 & -4 & -12 \
 
 $$y = \begin{bmatrix} y_1 \\ y_2 \end{bmatrix} = Ax = \begin{bmatrix} 5 & 3 \\ 3 & 5 \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$$
 
-Find the principal directions, that is, the directions of the position vector $x$ of $P$ for which the direction of the position vector $y$ of $Q$ is the same or exactly opposite. *(7 marks)*
+Find the principal directions, that is, the directions of the position vector $x$ of $P$ for which the direction of the position vector $y$ of $Q$ is the same or exactly opposite. *(6 marks)*
 :::
 
 !include membrane
@@ -120,7 +120,7 @@ Find the principal directions, that is, the directions of the position vector $x
 ### (a) Non-homogeneous second-order ODE
 
 ::: {custom-style="Question Box"}
-**Question 7(a).** Find the solution to the engineering problem represented by the differential equation below.
+**Question 7(a).** Find the solution to the engineering problem represented by the differential equation below. *(6 marks)*
 
 $$\frac{d^2y}{dx^2} + 2\frac{dy}{dx} + 5y = x^2 + xe^{2x} + e^{-x}\sin 2x$$
 :::
@@ -154,7 +154,7 @@ $$y_3 = -\frac{x}{4}e^{-x}\cos 2x$$
 ### (b) Undamped spring–mass system
 
 ::: {custom-style="Question Box"}
-**Question 7(b).** A spring with a mass of 2000 g has natural length of one-half a meter. A force of 25.6 N is required to maintain it stretched to a length of 700 mm. If the spring is stretched to a length of 700 mm and then released with initial velocity 0 m/s: (i) What will be the position of the mass at any time, $t$? (ii) What length of travel (in m) would the mass achieve in $t = \pi/24$ seconds?
+**Question 7(b).** A spring with a mass of 2000 g has natural length of one-half a meter. A force of 25.6 N is required to maintain it stretched to a length of 700 mm. If the spring is stretched to a length of 700 mm and then released with initial velocity 0 m/s: (i) What will be the position of the mass at any time, $t$? (ii) What length of travel (in m) would the mass achieve in $t = \pi/24$ seconds? *(6 marks)*
 :::
 
 !include spring-undamped

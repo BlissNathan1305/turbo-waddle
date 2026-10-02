@@ -11,7 +11,7 @@ from com.sun.star.beans import PropertyValue
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-SRC = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'GET321-Theory-Solutions.docx'))
+SRC = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'GET321-Theory-Marking-Scheme.docx'))
 OUT = os.path.abspath(sys.argv[2] if len(sys.argv) > 2 else os.path.splitext(SRC)[0] + '.pdf')
 
 

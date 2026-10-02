@@ -20,7 +20,7 @@ $$z^2\frac{d^2y}{dz^2} + z\frac{dy}{dz} + (z^2 - \nu^2)y = 0 \quad \text{with} \
 
 This is **Bessel's equation of order $\nu = 0$**.
 
-**General solution.** For non-integer $\nu$ the general solution is $y = c_1 J_\nu(z) + c_2 J_{-\nu}(z)$. Here $\nu = 0$, so $J_{\nu}$ and $J_{-\nu}$ are the same function, $J_0$, and they do not give two independent solutions. The second solution is the Bessel function of the second kind, $Y_0$:
+**General solution.** For order $\nu = 0$ the two independent solutions are $J_0(z)$ and the Bessel function of the second kind, $Y_0(z)$:
 
 $$y = c_1 J_0(z) + c_2 Y_0(z) = c_1 J_0\!\left(\sqrt{2x}\right) + c_2 Y_0\!\left(\sqrt{2x}\right)$$
 
@@ -28,4 +28,4 @@ In series form, the first solution is
 
 $$J_0\!\left(\sqrt{2x}\right) = \sum_{m=0}^{\infty} \frac{(-1)^m}{(m!)^2}\left(\frac{x}{2}\right)^m = 1 - \frac{x}{2} + \frac{x^2}{16} - \frac{x^3}{288} + \cdots$$
 
-> **Answer.** $y = c_1 J_0\!\left(\sqrt{2x}\right) + c_2 Y_0\!\left(\sqrt{2x}\right)$. The order is $\nu = 0$, so "$J_\nu$ and $J_{-\nu}$" both reduce to $J_0$ and the second independent solution is $Y_0$.
+> **Answer.** $y = c_1 J_0\!\left(\sqrt{2x}\right) + c_2 Y_0\!\left(\sqrt{2x}\right)$.

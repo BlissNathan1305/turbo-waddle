@@ -1,4 +1,4 @@
-The symbol $\delta$ in the question stands for the partial derivative $\partial$. The equation is
+The equation is
 
 $$\frac{\partial^2 u}{\partial x^2} = \frac{1}{16}\frac{\partial^2 u}{\partial t^2} \quad\Leftrightarrow\quad \frac{\partial^2 u}{\partial t^2} = c^2\frac{\partial^2 u}{\partial x^2}, \qquad c^2 = 16, \ c = 4, \ L = 2$$
 
